@@ -1,0 +1,146 @@
+{
+  "disco-l": {
+    "x": "-46px",
+    "y": "-50px",
+    "z": "1",
+    "r": "-28deg",
+    "w": "270px"
+  },
+  "disco-r": {
+    "x": "1406px",
+    "y": "510px",
+    "z": "1",
+    "r": "14deg",
+    "w": "332px"
+  },
+  "spark-d": {
+    "x": "823px",
+    "y": "492px",
+    "z": "3",
+    "r": "0deg",
+    "w": "175px"
+  },
+  "kids": {
+    "x": "186px",
+    "y": "47px",
+    "z": "4",
+    "r": "0deg",
+    "w": "795px"
+  },
+  "dog": {
+    "x": "-186px",
+    "y": "601px",
+    "z": "5",
+    "r": "23deg",
+    "w": "230px"
+  },
+  "megaphone": {
+    "x": "886px",
+    "y": "-34px",
+    "z": "5",
+    "r": "-21deg",
+    "w": "329px"
+  },
+  "cherries": {
+    "x": "1142px",
+    "y": "23px",
+    "z": "6",
+    "r": "-11deg",
+    "w": "137px"
+  },
+  "kiss": {
+    "x": "1504px",
+    "y": "321px",
+    "z": "6",
+    "r": "-12deg",
+    "w": "285px"
+  },
+  "spark-3": {
+    "x": "1391px",
+    "y": "87px",
+    "z": "5",
+    "r": "0deg",
+    "w": "194px"
+  },
+  "star-2": {
+    "x": "1000px",
+    "y": "640px",
+    "z": "6",
+    "r": "-15deg",
+    "w": "65px"
+  },
+  "note-1": {
+    "x": "-119px",
+    "y": "271px",
+    "z": "7",
+    "r": "-22deg",
+    "fontSize": "99px",
+    "text": "hi it's"
+  },
+  "note-our": {
+    "x": "101px",
+    "y": "232px",
+    "z": "7",
+    "r": "-1deg",
+    "fontSize": "99px",
+    "text": "our"
+  },
+  "note-bday": {
+    "x": "-46px",
+    "y": "328px",
+    "z": "7",
+    "r": "-13deg",
+    "fontSize": "99px",
+    "text": "bday"
+  },
+  "note-2": {
+    "x": "-61px",
+    "y": "477px",
+    "z": "7",
+    "r": "-11deg",
+    "fontSize": "64px",
+    "text": "hope u can"
+  },
+  "note-make": {
+    "x": "21px",
+    "y": "508px",
+    "z": "7",
+    "r": "-9deg",
+    "fontSize": "64px",
+    "text": "make it"
+  },
+  "title": {
+    "x": "955px",
+    "y": "251px",
+    "z": "7",
+    "r": "-10deg",
+    "fontSize": "133px",
+    "text": "You're\nInvited!"
+  },
+  "highlight": {
+    "x": "965px",
+    "y": "485px",
+    "z": "7",
+    "r": "-6deg",
+    "w": "480px",
+    "h": "163px"
+  },
+  "hl-top": {
+    "x": "941px",
+    "y": "479px",
+    "z": "8",
+    "r": "-6deg",
+    "w": "520px",
+    "fontSize": "62px",
+    "text": "CELEBRATE WITH US"
+  },
+  "hl-bot": {
+    "x": "953px",
+    "y": "572px",
+    "z": "8",
+    "r": "-5deg",
+    "w": "520px",
+    "fontSize": "62px",
+    "text": "12/09/2026"
+  }
+}

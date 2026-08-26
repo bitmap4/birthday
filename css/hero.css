@@ -17,11 +17,11 @@
 }
 
 :root {
-  --hero: 75svh;
+  --hero: 70svh;
   --tear: 28px;
   --paper-w: 576px;
   --paper-h: 1024px;
-  --ink: #1c1410;
+  --ink: #2a140e;
   --red: #A00408;
   --note-pad: 0.5em;
   --note-mark-grow: 0.1px;
@@ -43,26 +43,6 @@ html {
 body {
   position: relative;
 }
-
-/* @placed:start */
-.s-disco-l { --x: -50px; --y: -40px; --w: 270px; --r: -8deg; --z: 1; }
-.s-kids { --x: 400px; --y: 30px; --w: 400px; --r: 0deg; --z: 4; }
-.s-dog { --x: 70px; --y: 560px; --w: 230px; --r: -8deg; --z: 5; }
-.s-megaphone { --x: 820px; --y: -20px; --w: 230px; --r: 18deg; --z: 5; }
-.s-cherries { --x: 1050px; --y: 70px; --w: 78px; --r: 16deg; --z: 6; }
-.s-disco-r { --x: 1240px; --y: 350px; --w: 230px; --r: 14deg; --z: 1; }
-.s-kiss { --x: 1240px; --y: 510px; --w: 115px; --r: -22deg; --z: 6; }
-.s-spark-3 { --x: 1180px; --y: 400px; --w: 58px; --r: 12deg; --z: 5; }
-.s-spark-d { --x: 800px; --y: 450px; --w: 100px; --r: 6deg; --z: 3; }
-.s-star-2 { --x: 700px; --y: 670px; --w: 36px; --r: 10deg; --z: 6; }
-.note-1 { --x: 86px; --y: 250px; --r: -7deg; --z: 7; font-size: 42px; }
-.note-our { --x: 210px; --y: 246px; --r: 8deg; --z: 7; font-size: 42px; }
-.note-bday { --x: 107px; --y: 284px; --r: -4deg; --z: 7; font-size: 42px; }
-.note-2 { --x: 115px; --y: 430px; --r: -3deg; --z: 7; font-size: 42px; }
-.note-make { --x: 149px; --y: 464px; --r: 2deg; --z: 7; font-size: 42px; }
-.title { --x: 620px; --y: 280px; --r: -6deg; --z: 7; }
-.hl { --x: 620px; --y: 348px; --w: 480px; --h: 133px; --r: -6deg; --z: 7; }
-/* @placed:end */
 
 .hero {
   position: relative;
@@ -99,7 +79,7 @@ body {
 .stage {
   position: absolute;
   left: 50%;
-  top: calc(var(--hero) / 2);
+  top: calc(75svh / 2);
   width: 1440px;
   height: 820px;
   transform: translate(-50%, -50%) scale(var(--fit, 1));
@@ -194,7 +174,7 @@ body {
 
 .title {
   font-family: "Gochi Hand", cursive;
-  font-size: 56px;
+  font-size: var(--fs, 56px);
   font-weight: 400;
   color: var(--red);
   line-height: 0.8;
@@ -204,40 +184,28 @@ body {
 .hl {
   position: relative;
   width: var(--w);
+  height: var(--h, 133px);
 }
 
 .hl-asset {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  overflow: visible;
   pointer-events: none;
   mix-blend-mode: multiply;
-  filter: brightness(1.18);
 }
 
-.hl-top,
-.hl-bot {
-  position: absolute;
-  left: 0;
-  right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
+.hl-label {
+  width: var(--w, auto);
   font-family: "Cup Cakes", cursive;
+  font-size: var(--fs, 22px);
   color: var(--ink);
+  text-align: center;
   white-space: nowrap;
-  letter-spacing: -0.08em;
+  letter-spacing: -0.16em;
 }
 
 .hl-top {
-  top: 2%;
-  height: 36%;
-  font-size: 22px;
-}
-
-.hl-bot {
-  top: 62%;
-  height: 36%;
-  font-size: 20px;
+  word-spacing: 0.3em;
 }

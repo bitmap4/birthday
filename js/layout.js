@@ -1,12 +1,14 @@
 window.Bday = window.Bday || {};
 
 (function (B) {
-  B.KEY = "bday-hero-v1";
+  const SCRIPT = document.currentScript;
   B.STAGE_W = 1440;
   B.STAGE_H = 820;
+  B.PLACED = {};
   B.NOTE_GROUPS = [
     ["note-1", "note-our", "note-bday"],
     ["note-2", "note-make"],
+    ["hl-top", "hl-bot"],
   ];
 
   B.restoreNoteMarks = function restoreNoteMarks() {
@@ -29,12 +31,21 @@ window.Bday = window.Bday || {};
 
   B.syncNoteSizes = function syncNoteSizes(fromEl) {
     const run = (g, src) => {
-      const fs = src.style.fontSize || "";
+      const fs =
+        src.style.fontSize ||
+        B.getVar(src, "--fs") ||
+        B.getVar(src, "font-size") ||
+        "";
       g.forEach((name) => {
         const n = document.querySelector(`[data-name="${name}"]`);
-        if (!n) return;
-        if (fs) n.style.fontSize = fs;
-        else n.style.removeProperty("font-size");
+        if (n && fs) {
+          if (n.classList.contains("hl-label") || n.classList.contains("title")) {
+            B.setVar(n, "--fs", fs);
+            n.style.removeProperty("font-size");
+          } else {
+            B.setVar(n, "font-size", fs);
+          }
+        }
       });
     };
     if (fromEl) {
@@ -50,74 +61,46 @@ window.Bday = window.Bday || {};
 
   B.items = () => [...document.querySelectorAll(".stage [data-edit]")];
 
-  B.sel = function sel(el) {
-    const n = el.dataset.name;
-    if (n === "highlight") return ".hl";
-    if (n === "title") return ".title";
-    if (el.classList.contains("s-" + n)) return ".s-" + n;
-    return "." + n;
-  };
-
-  B.ruleFor = function ruleFor(el) {
-    const want = B.sel(el);
-    for (const sheet of document.styleSheets) {
-      let rules;
-      try {
-        rules = sheet.cssRules;
-      } catch {
-        continue;
-      }
-      for (const rule of rules) {
-        if (!rule.selectorText) continue;
-        const parts = rule.selectorText.split(",").map((s) => s.trim());
-        if (parts.length === 1 && parts[0] === want) return rule;
-      }
-    }
-    return null;
+  B.placedUrl = function placedUrl() {
+    return new URL("../placed.json", SCRIPT.src).href;
   };
 
   B.getVar = function getVar(el, prop) {
-    const rule = B.ruleFor(el);
-    return rule ? rule.style.getPropertyValue(prop) : "";
+    if (prop === "font-size") return el.style.fontSize || "";
+    return el.style.getPropertyValue(prop) || "";
   };
 
   B.setVar = function setVar(el, prop, value) {
-    const rule = B.ruleFor(el);
-    if (rule) rule.style.setProperty(prop, value);
+    if (prop === "font-size") el.style.fontSize = value;
     else el.style.setProperty(prop, value);
   };
 
-  B.dumpPlacedCss = function dumpPlacedCss() {
-    const seen = new Set();
-    const lines = [];
-    B.items().forEach((el) => {
-      if (!el.classList.contains("placed")) return;
-      const sel = B.sel(el);
-      if (seen.has(sel)) return;
-      seen.add(sel);
-      const rule = B.ruleFor(el);
-      if (!rule) return;
-      const body = rule.style.cssText.trim();
-      if (body) lines.push(sel + " { " + body + " }");
-    });
-    return lines.join("\n");
+  B.loadPlaced = function loadPlaced() {
+    try {
+      localStorage.removeItem("bday-hero-v1");
+    } catch {
+      /* ignore */
+    }
+    try {
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", B.placedUrl() + "?t=" + Date.now(), false);
+      xhr.send();
+      B.PLACED = JSON.parse(xhr.responseText);
+    } catch {
+      B.PLACED = B.PLACED || {};
+    }
+    return B.PLACED;
   };
 
   B.savePlaced = function savePlaced() {
-    const css = B.dumpPlacedCss();
+    B.PLACED = B.dumpPlaced();
     return fetch("/__placed", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ css }),
-    }).catch(() => {});
-  };
-
-  B.load = function load() {
-    try {
-      return JSON.parse(localStorage.getItem(B.KEY) || "{}");
-    } catch {
-      return {};
-    }
+      body: JSON.stringify(B.PLACED),
+    })
+      .then((r) => r.ok)
+      .catch(() => false);
   };
 
   B.cssNum = function cssNum(el, prop, fallback) {
@@ -178,19 +161,26 @@ window.Bday = window.Bday || {};
     return old.some((r) => sameRgb(r, rgb));
   };
 
-  B.applySaved = function applySaved() {
-    const data = B.load();
+  B.applyPlaced = function applyPlaced() {
+    const data = B.PLACED || {};
     B.items().forEach((el) => {
       const o = data[el.dataset.name];
       if (!o) return;
-      if (o.x) el.style.setProperty("--x", o.x);
-      if (o.y) el.style.setProperty("--y", o.y);
-      if (o.w) el.style.setProperty("--w", o.w);
-      if (o.h) el.style.setProperty("--h", o.h);
-      if (o.r) el.style.setProperty("--r", o.r);
-      if (o.z) el.style.setProperty("--z", o.z);
+      if (o.x) B.setVar(el, "--x", o.x);
+      if (o.y) B.setVar(el, "--y", o.y);
+      if (o.w) B.setVar(el, "--w", o.w);
+      if (o.h) B.setVar(el, "--h", o.h);
+      if (o.r) B.setVar(el, "--r", o.r);
+      if (o.z) B.setVar(el, "--z", o.z);
       if (el.dataset.edit === "text") {
-        if (o.fontSize) el.style.fontSize = o.fontSize;
+        if (o.fontSize) {
+          if (el.classList.contains("title") || el.classList.contains("hl-label")) {
+            B.setVar(el, "--fs", o.fontSize);
+            el.style.removeProperty("font-size");
+          } else {
+            B.setVar(el, "font-size", o.fontSize);
+          }
+        }
         if (o.color && !B.isThemeRed(o.color) && !B.isThemeInk(o.color)) {
           el.style.color = o.color;
         }
@@ -201,32 +191,14 @@ window.Bday = window.Bday || {};
           el.style.fontFamily = o.fontFamily;
         }
         if (o.text != null && o.text !== "") {
-          let t = o.text;
-          if (
-            el.dataset.name === "title" &&
-            /^it's our birthday!?$/i.test(t.replace(/\s+/g, " ").trim())
-          ) {
-            t = "It's our\nbirthday!";
+          if (el.dataset.name === "title") {
+            el.innerHTML = String(o.text)
+              .replace(/&/g, "&amp;")
+              .replace(/</g, "&lt;")
+              .replace(/\n/g, "<br>");
+          } else {
+            el.innerText = o.text;
           }
-          if (el.classList.contains("note")) {
-            t = t.replace(/[♡♥❤☺😊]/g, "").replace(/[ \t]+$/gm, "");
-          }
-          if (el.dataset.name === "note-1") {
-            t = t
-              .replace(/\bour\b/gi, "")
-              .replace(/\bbday\b/gi, "")
-              .replace(/\n+/g, " ")
-              .replace(/[ \t]+$/g, "")
-              .trim();
-          }
-          if (el.dataset.name === "note-2") {
-            t = t
-              .replace(/\bmake it\b/gi, "")
-              .replace(/\n+/g, " ")
-              .replace(/[ \t]+$/g, "")
-              .trim();
-          }
-          el.innerText = t;
         }
       }
     });
@@ -235,33 +207,52 @@ window.Bday = window.Bday || {};
   };
 
   B.snapshot = function snapshot(el) {
-    const o = {
-      x: el.style.getPropertyValue("--x") || "",
-      y: el.style.getPropertyValue("--y") || "",
-      w: el.style.getPropertyValue("--w") || "",
-      h: el.style.getPropertyValue("--h") || "",
-      r: el.style.getPropertyValue("--r") || "",
-      z: el.style.getPropertyValue("--z") || "",
+    const read = (p) =>
+      el.style.getPropertyValue(p) ||
+      getComputedStyle(el).getPropertyValue(p) ||
+      "";
+    const add = (o, k, v) => {
+      v = String(v || "").trim();
+      if (v) o[k] = v;
     };
+    const o = {};
+    add(o, "x", read("--x"));
+    add(o, "y", read("--y"));
+    add(o, "z", read("--z"));
+    add(o, "r", read("--r"));
+    add(o, "w", read("--w"));
+    add(o, "h", read("--h"));
     if (el.dataset.edit === "text") {
-      o.fontSize = el.style.fontSize || "";
-      o.color =
-        B.isThemeRed(el.style.color) || B.isThemeInk(el.style.color)
-          ? ""
-          : el.style.color || "";
-      o.letterSpacing = el.style.letterSpacing || "";
-      o.fontFamily = el.style.fontFamily || "";
-      o.text = el.innerText;
+      add(
+        o,
+        "fontSize",
+        el.style.fontSize ||
+          el.style.getPropertyValue("--fs") ||
+          getComputedStyle(el).getPropertyValue("--fs") ||
+          getComputedStyle(el).fontSize
+      );
+      if (el.style.color && !B.isThemeRed(el.style.color) && !B.isThemeInk(el.style.color)) {
+        add(o, "color", el.style.color);
+      }
+      add(o, "letterSpacing", el.style.letterSpacing);
+      add(o, "fontFamily", el.style.fontFamily);
+      add(o, "text", el.innerText);
     }
     return o;
   };
 
-  B.save = function save() {
-    const data = B.load();
+  B.dumpPlaced = function dumpPlaced() {
+    const data = {};
     B.items().forEach((el) => {
-      if (el.dataset.name) data[el.dataset.name] = B.snapshot(el);
+      if (el.dataset.name && el.classList.contains("placed")) {
+        data[el.dataset.name] = B.snapshot(el);
+      }
     });
-    localStorage.setItem(B.KEY, JSON.stringify(data));
+    return data;
+  };
+
+  B.save = function save() {
+    B.savePlaced();
   };
 
   B.heroMetrics = function heroMetrics(hero) {
@@ -271,7 +262,7 @@ window.Bday = window.Bday || {};
       probe.id = "bday-svh";
       probe.setAttribute("aria-hidden", "true");
       probe.style.cssText =
-        "position:fixed;left:0;top:0;width:100%;height:var(--hero);visibility:hidden;pointer-events:none";
+        "position:fixed;left:0;top:0;width:100%;height:75svh;visibility:hidden;pointer-events:none";
       document.documentElement.appendChild(probe);
     }
     return {
@@ -384,61 +375,176 @@ window.Bday = window.Bday || {};
     );
   };
 
-  // Felt-tip highlight: slow centerline drift (H~0.82) + pressure width
-  // (H~0.55) + paper-fiber edge jitter (H~0.28). Caps are a noisy
-  // half-ellipse so the ends look placed/lifted, not squared off.
-  function markerStroke(x0, x1, y, half, seed) {
+  function edge(n, seed) {
+    const slow = fbm(n, 0.45, seed);
+    const tooth = fbm(n, 0.22, seed + 17);
+    return normalize(
+      Float64Array.from(slow, (v, i) => v + 0.4 * tooth[i])
+    );
+  }
+
+  function noisyRectPts(x0, y0, x1, y1, seed, amp) {
     const n = (1 << 7) + 1;
-    const k = (1 << 3) + 1;
-    const drift = fbm(n, 0.82, seed);
-    const press = fbm(n, 0.55, seed + 11);
-    const topN = fbm(n, 0.28, seed + 23);
-    const botN = fbm(n, 0.28, seed + 41);
-    const rng = mulberry32(seed + 99);
-    const slantL = (rng() - 0.4) * 7;
-    const slantR = (rng() - 0.6) * 7;
-    const top = [];
-    const bot = [];
+    const top = edge(n, seed);
+    const right = edge(n, seed + 3);
+    const bot = edge(n, seed + 5);
+    const left = edge(n, seed + 7);
+    const w = x1 - x0;
+    const h = y1 - y0;
+    const pts = [];
     for (let i = 0; i < n; i++) {
       const t = i / (n - 1);
-      const x = x0 + (x1 - x0) * t;
-      const c = y + drift[i] * half * 0.22;
-      const taper = 0.78 + 0.22 * Math.sin(Math.PI * t) ** 0.22;
-      const h = half * (0.86 + 0.2 * press[i]) * taper;
-      const xt = x + (1 - t) * slantL + t * slantR * 0.15;
-      const xb = x + (1 - t) * slantL * 0.2 + t * slantR;
-      top.push([xt, c - h + topN[i] * half * 0.2]);
-      bot.push([xb, c + h + botN[i] * half * 0.2]);
+      pts.push([x0 + w * t, y0 + amp * top[i]]);
     }
-    function cap(cx, cy, r, a0, a1, s) {
-      const ns = fbm(k, 0.32, s);
-      const pts = [];
-      for (let i = 0; i < k; i++) {
-        const u = i / (k - 1);
-        const a = a0 + (a1 - a0) * u;
-        const rr = r * (0.78 + 0.28 * ns[i]);
-        pts.push([cx + Math.cos(a) * rr, cy + Math.sin(a) * rr]);
-      }
-      return pts;
+    for (let i = 1; i < n; i++) {
+      const t = i / (n - 1);
+      pts.push([x1 + amp * 0.65 * right[i], y0 + h * t]);
     }
-    const rL = half * (0.9 + 0.15 * rng());
-    const rR = half * (0.9 + 0.15 * rng());
-    const left = cap(x0 + slantL * 0.4, y, rL, Math.PI * 0.55, Math.PI * 1.45, seed + 70);
-    const right = cap(x1 + slantR * 0.4, y, rR, -Math.PI * 0.45, Math.PI * 0.45, seed + 80);
-    const pts = top.concat(right, bot.slice().reverse(), left);
-    let d = "";
+    for (let i = 1; i < n; i++) {
+      const t = i / (n - 1);
+      pts.push([x1 - w * t, y1 + amp * bot[i]]);
+    }
+    for (let i = 1; i < n; i++) {
+      const t = i / (n - 1);
+      pts.push([x0 + amp * 0.65 * left[i], y1 - h * t]);
+    }
+    return pts;
+  }
+
+  function hash2(ix, iy, seed) {
+    let a = (Math.imul(ix | 0, 374761393) + Math.imul(iy | 0, 668265263) + (seed | 0)) >>> 0;
+    a = (a + 0x6d2b79f5) >>> 0;
+    let t = a;
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  }
+
+  function valueNoise2(x, y, seed) {
+    const x0 = Math.floor(x);
+    const y0 = Math.floor(y);
+    const fx = x - x0;
+    const fy = y - y0;
+    const sx = fx * fx * (3 - 2 * fx);
+    const sy = fy * fy * (3 - 2 * fy);
+    const a = hash2(x0, y0, seed);
+    const b = hash2(x0 + 1, y0, seed);
+    const c = hash2(x0, y0 + 1, seed);
+    const d = hash2(x0 + 1, y0 + 1, seed);
+    return a + (b - a) * sx + (c - a) * sy + (a - b - c + d) * sx * sy;
+  }
+
+  function fbm2(x, y, seed, octaves) {
+    let s = 0;
+    let a = 1;
+    let f = 1;
+    let n = 0;
+    for (let i = 0; i < octaves; i++) {
+      s += a * valueNoise2(x * f, y * f, seed + i * 19);
+      n += a;
+      a *= 0.5;
+      f *= 2.05;
+    }
+    return s / n;
+  }
+
+  function smoothstep(e0, e1, x) {
+    const t = Math.max(0, Math.min(1, (x - e0) / (e1 - e0)));
+    return t * t * (3 - 2 * t);
+  }
+
+  function inkAlpha(u, v, seed) {
+    const ev = 0.7 + 0.3 * Math.pow(Math.sin(Math.PI * v), 0.55);
+    const eu = smoothstep(0, 0.06, u) * smoothstep(0, 0.08, 1 - u);
+    const ridge = 0.86 + 0.14 * Math.exp(-((v - 0.4) / 0.24) * ((v - 0.4) / 0.24));
+    const wet = fbm2(u * 1.05, v * 0.65, seed, 4);
+    const pressure = fbm2(u * 1.7, 0.18, seed + 11, 3);
+    const streak = fbm2(u * 0.4, v * 15, seed + 23, 5);
+    const grain = fbm2(u * 24, v * 18, seed + 41, 2);
+    let a =
+      0.56 *
+      ev *
+      ridge *
+      (0.52 + 0.48 * eu) *
+      (0.68 + 0.58 * wet) *
+      (0.8 + 0.38 * pressure) *
+      (0.74 + 0.5 * streak) *
+      (0.93 + 0.24 * grain);
+    if (a < 0.16) a = 0.16;
+    if (a > 0.9) a = 0.9;
+    return a;
+  }
+
+  function paintBar(ctx, scale, x0, y0, x1, y1, seed, amp) {
+    const pts = noisyRectPts(x0, y0, x1, y1, seed, amp);
+    const path = new Path2D();
     for (let i = 0; i < pts.length; i++) {
-      d += `${i ? "L" : "M"}${pts[i][0].toFixed(2)},${pts[i][1].toFixed(2)}`;
+      const x = pts[i][0] * scale;
+      const y = pts[i][1] * scale;
+      if (i) path.lineTo(x, y);
+      else path.moveTo(x, y);
     }
-    return d + "Z";
+    path.closePath();
+
+    const pad = Math.ceil(amp * scale + 2);
+    const bx = Math.floor(x0 * scale) - pad;
+    const by = Math.floor(y0 * scale) - pad;
+    const bw = Math.ceil((x1 - x0) * scale) + pad * 2;
+    const bh = Math.ceil((y1 - y0) * scale) + pad * 2;
+    const img = ctx.createImageData(bw, bh);
+    const d = img.data;
+    const rgb = paintBar._rgb || (paintBar._rgb = [160, 4, 8]);
+    const R = rgb[0];
+    const G = rgb[1];
+    const Bcol = rgb[2];
+    for (let j = 0; j < bh; j++) {
+      const v = (j - pad) / ((y1 - y0) * scale);
+      for (let i = 0; i < bw; i++) {
+        const u = (i - pad) / ((x1 - x0) * scale);
+        if (u < -0.04 || u > 1.04 || v < -0.08 || v > 1.08) continue;
+        const a = inkAlpha(Math.max(0, Math.min(1, u)), Math.max(0, Math.min(1, v)), seed);
+        const k = (j * bw + i) * 4;
+        d[k] = R;
+        d[k + 1] = G;
+        d[k + 2] = Bcol;
+        d[k + 3] = (a * 255) | 0;
+      }
+    }
+
+    const tmp = paintBar._tmp || (paintBar._tmp = document.createElement("canvas"));
+    tmp.width = ctx.canvas.width;
+    tmp.height = ctx.canvas.height;
+    const tctx = tmp.getContext("2d");
+    tctx.clearRect(0, 0, tmp.width, tmp.height);
+    tctx.putImageData(img, bx, by);
+    tctx.globalCompositeOperation = "destination-in";
+    tctx.fill(path);
+    tctx.globalCompositeOperation = "source-over";
+    ctx.drawImage(tmp, 0, 0);
   }
 
   B.paintHighlight = function paintHighlight() {
-    const top = document.getElementById("hl-path-top");
-    const bot = document.getElementById("hl-path-bot");
-    if (!top || !bot) return;
-    top.setAttribute("d", markerStroke(10, 350, 28, 17, 20260901));
-    bot.setAttribute("d", markerStroke(78, 282, 101, 16, 20260914));
+    const canvas = document.querySelector("canvas.hl-asset");
+    if (!canvas) return;
+    const hex = (
+      getComputedStyle(document.documentElement).getPropertyValue("--red") ||
+      "#A00408"
+    ).trim();
+    const m = hex.match(/^#([0-9a-f]{6})$/i);
+    paintBar._rgb = m
+      ? [
+          parseInt(m[1].slice(0, 2), 16),
+          parseInt(m[1].slice(2, 4), 16),
+          parseInt(m[1].slice(4, 6), 16),
+        ]
+      : [160, 4, 8];
+    const scale = 2;
+    canvas.width = 360 * scale;
+    canvas.height = 133 * scale;
+    const ctx = canvas.getContext("2d");
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    paintBar(ctx, scale, 8, 11, 352, 47, 20260901, 7);
+    paintBar(ctx, scale, 76, 84, 284, 120, 20260914, 7);
   };
 
   B.bootHero = function bootHero() {
@@ -446,13 +552,16 @@ window.Bday = window.Bday || {};
     const shadowSvg = document.querySelector(".tear-shadow");
     const shadowPath = document.getElementById("tear-shadow-path");
     const noise = B.makeTearNoise();
+    B.loadPlaced();
+    B.applyPlaced();
     function sync() {
-      B.applySaved();
+      B.paintHighlight();
       B.fitStage(hero);
       B.updateTear(hero, shadowSvg, shadowPath, noise);
     }
     sync();
     window.addEventListener("resize", sync);
+    window.addEventListener("load", sync);
   };
 
   B.fitVal = function fitVal() {

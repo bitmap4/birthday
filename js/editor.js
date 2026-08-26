@@ -141,21 +141,27 @@
     if (mode.kind === "move") {
       const dx = (e.clientX - mode.px) / mode.s;
       const dy = (e.clientY - mode.py) / mode.s;
-      el.style.setProperty("--x", Math.round(mode.x0 + dx) + "px");
-      el.style.setProperty("--y", Math.round(mode.y0 + dy) + "px");
+      B.setVar(el, "--x", Math.round(mode.x0 + dx) + "px");
+      B.setVar(el, "--y", Math.round(mode.y0 + dy) + "px");
     } else if (mode.kind === "resize") {
       const d = Math.hypot(e.clientX - mode.cx, e.clientY - mode.cy);
       const t = d / mode.d0;
       if (el.dataset.edit === "text") {
-        el.style.fontSize = Math.max(8, Math.round(mode.fs0 * t)) + "px";
+        const fs = Math.max(8, Math.round(mode.fs0 * t)) + "px";
+        if (el.classList.contains("title") || el.classList.contains("hl-label")) {
+          B.setVar(el, "--fs", fs);
+          el.style.removeProperty("font-size");
+        } else {
+          B.setVar(el, "font-size", fs);
+        }
         B.syncNoteSizes(el);
       } else {
-        el.style.setProperty("--w", Math.max(16, Math.round(mode.w0 * t)) + "px");
+        B.setVar(el, "--w", Math.max(16, Math.round(mode.w0 * t)) + "px");
       }
     } else if (mode.kind === "rotate") {
       const a = Math.atan2(e.clientY - mode.cy, e.clientX - mode.cx);
       const deg = mode.r0 + ((a - mode.a0) * 180) / Math.PI;
-      el.style.setProperty("--r", Math.round(deg) + "deg");
+      B.setVar(el, "--r", Math.round(deg) + "deg");
     }
     layoutHandles();
   });
@@ -196,16 +202,16 @@
       const step = e.shiftKey ? 10 : 1;
       const x = B.cssNum(selected, "--x", selected.offsetLeft);
       const y = B.cssNum(selected, "--y", selected.offsetTop);
-      if (e.key === "ArrowLeft") selected.style.setProperty("--x", x - step + "px");
-      if (e.key === "ArrowRight") selected.style.setProperty("--x", x + step + "px");
-      if (e.key === "ArrowUp") selected.style.setProperty("--y", y - step + "px");
-      if (e.key === "ArrowDown") selected.style.setProperty("--y", y + step + "px");
+      if (e.key === "ArrowLeft") B.setVar(selected, "--x", x - step + "px");
+      if (e.key === "ArrowRight") B.setVar(selected, "--x", x + step + "px");
+      if (e.key === "ArrowUp") B.setVar(selected, "--y", y - step + "px");
+      if (e.key === "ArrowDown") B.setVar(selected, "--y", y + step + "px");
       layoutHandles();
       B.save();
     }
     if (e.key === "]" || e.key === "[") {
       const z = B.cssNum(selected, "--z", 1);
-      selected.style.setProperty("--z", String(e.key === "]" ? z + 1 : Math.max(0, z - 1)));
+      B.setVar(selected, "--z", String(e.key === "]" ? z + 1 : Math.max(0, z - 1)));
       B.save();
     }
   });
@@ -236,11 +242,9 @@
   }
 
   document.getElementById("ed-reset").addEventListener("click", () => {
-    localStorage.removeItem(B.KEY);
     location.reload();
   });
 
-  B.applySaved();
   B.fitStage(hero);
   window.addEventListener("resize", () => {
     B.fitStage(hero);
