@@ -17,7 +17,8 @@
 }
 
 :root {
-  --hero: 70svh;
+  --hero: calc(100vw * 0.70 * 963 / 1585);
+  --stage-top: calc(100vw * 0.375 * 963 / 1585);
   --tear: 28px;
   --paper-w: 576px;
   --paper-h: 1024px;
@@ -79,7 +80,7 @@ body {
 .stage {
   position: absolute;
   left: 50%;
-  top: calc(75svh / 2);
+  top: var(--stage-top);
   width: 1440px;
   height: 820px;
   transform: translate(-50%, -50%) scale(var(--fit, 1));
@@ -181,6 +182,21 @@ body {
   white-space: nowrap;
 }
 
+.wash {
+  width: var(--w);
+  height: var(--h, 200px);
+}
+
+.wash-asset {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  overflow: visible;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
 .hl {
   position: relative;
   width: var(--w);
@@ -208,4 +224,64 @@ body {
 
 .hl-top {
   word-spacing: 0.3em;
+}
+
+html[data-break="mobile"] {
+  background-image: url("../assets/stickers/bg.png");
+  background-size: var(--paper-w) var(--paper-h);
+  background-repeat: repeat;
+}
+
+html[data-break="mobile"] body:not(.edit-page) {
+  min-height: 100svh;
+  background: transparent;
+}
+
+html[data-break="mobile"] .hero {
+  height: var(--hero);
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+html[data-break="mobile"] .ed-frame {
+  background-image: url("../assets/stickers/bg.png");
+  background-size: var(--paper-w) var(--paper-h);
+  background-repeat: repeat;
+}
+
+html[data-break="mobile"] .body,
+html[data-break="mobile"] .tear-shadow {
+  display: none;
+}
+
+.stage [data-show="mobile"] {
+  display: none;
+}
+
+html[data-break="mobile"] .stage [data-show="mobile"] {
+  display: block;
+}
+
+html[data-break="mobile"] .stage [data-show="wide"] {
+  display: none;
+}
+
+.s-kiss-red {
+  background-color: var(--red);
+  -webkit-mask: url("../assets/canva/pub-DiO-U.png") center / contain no-repeat;
+  mask: url("../assets/canva/pub-DiO-U.png") center / contain no-repeat;
+}
+
+.s-kiss-red img {
+  opacity: 0;
+}
+
+.s-heart {
+  background-color: var(--red);
+  -webkit-mask: url("../assets/stickers/romantic.png") center / contain no-repeat;
+  mask: url("../assets/stickers/romantic.png") center / contain no-repeat;
+}
+
+.s-heart img {
+  opacity: 0;
 }

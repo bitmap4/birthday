@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Birthday</title>
     <link rel="stylesheet" href="css/hero.css" />
+    <link rel="stylesheet" href="css/mobile-body.css" />
     <style>
       html,
       body {
@@ -21,19 +22,19 @@
     <section class="hero">
       <div class="stage">
         <div class="placed sticker s-disco-l" data-edit="sticker" data-name="disco-l">
-          <img src="assets/stickers/pub-l9qXM.png" alt="" draggable="false" />
+          <img src="refs/canva-dump/pub-l9qXM_wm_s3.png" alt="" draggable="false" />
         </div>
         <div class="placed sticker s-disco-r" data-edit="sticker" data-name="disco-r">
-          <img src="assets/stickers/pub-l9qXM.png" alt="" draggable="false" />
+          <img src="refs/canva-dump/pub-l9qXM_wm_s3.png" alt="" draggable="false" />
         </div>
-        <div class="placed sticker s-spark-d" data-edit="sticker" data-name="spark-d">
+        <div class="placed sticker s-spark-d" data-edit="sticker" data-name="spark-d" data-show="wide">
           <img src="assets/stickers/sparkle_double.png" alt="" draggable="false" />
         </div>
         <div class="placed sticker s-kids" data-edit="sticker" data-name="kids">
           <img src="assets/stickers/torn_hats.png" alt="" draggable="false" />
         </div>
         <div class="placed sticker s-dog" data-edit="sticker" data-name="dog">
-          <img src="assets/stickers/pub-fMtLE.png" alt="" draggable="false" />
+          <img src="refs/canva-dump/pub-fMtLE_wm_s3.png" alt="" draggable="false" />
         </div>
         <div class="placed sticker s-megaphone" data-edit="sticker" data-name="megaphone">
           <img src="assets/stickers/9a34e636.png" alt="" draggable="false" />
@@ -47,16 +48,40 @@
         <div class="placed sticker s-spark-3" data-edit="sticker" data-name="spark-3">
           <img src="assets/stickers/sparkle_single.png" alt="" draggable="false" />
         </div>
-        <div class="placed sticker s-star-2" data-edit="sticker" data-name="star-2">
+        <div class="placed sticker s-star-2" data-edit="sticker" data-name="star-2" data-show="wide">
           <img src="assets/stickers/star.png" alt="" draggable="false" />
+        </div>
+        <div class="placed sticker s-hearts" data-edit="sticker" data-name="hearts" data-show="mobile">
+          <img src="assets/stickers/362120c5.png" alt="" draggable="false" />
+        </div>
+        <div class="placed sticker s-xoxo" data-edit="sticker" data-name="xoxo" data-show="mobile">
+          <img src="assets/stickers/88356d96.png" alt="" draggable="false" />
+        </div>
+        <div class="placed sticker s-cherries-2" data-edit="sticker" data-name="cherries-2" data-show="mobile">
+          <img src="assets/stickers/fba9579f.png" alt="" draggable="false" />
+        </div>
+        <div class="placed sticker s-kiss-red" data-edit="sticker" data-name="kiss-red" data-show="mobile">
+          <img src="assets/canva/pub-DiO-U.png" alt="" draggable="false" />
+        </div>
+        <div class="placed sticker s-balloon-21" data-edit="sticker" data-name="balloon-21" data-show="mobile">
+          <img src="assets/stickers/50af036d.png" alt="" draggable="false" />
+        </div>
+        <div class="placed sticker s-ribbon" data-edit="sticker" data-name="ribbon" data-show="mobile">
+          <img src="refs/canva-dump/pub-CJQUc_wm_s3.png" alt="" draggable="false" />
+        </div>
+        <div class="placed sticker s-heart" data-edit="sticker" data-name="heart" data-show="mobile">
+          <img src="assets/stickers/romantic.png" alt="" draggable="false" />
         </div>
         <p class="placed note note-1" data-edit="text" data-name="note-1">hi it's</p>
         <p class="placed note note-our" data-edit="text" data-name="note-our">our</p>
         <p class="placed note note-bday" data-edit="text" data-name="note-bday">bday<span class="note-mark" aria-hidden="true"><span class="note-mark-shape note-mark-heart"></span></span></p>
         <p class="placed note note-2" data-edit="text" data-name="note-2">hope u can</p>
         <p class="placed note note-make" data-edit="text" data-name="note-make">make it<span class="note-mark" aria-hidden="true"><span class="note-mark-shape note-mark-smile"></span></span></p>
+        <div class="placed wash" data-edit="sticker" data-name="title-wash" data-show="mobile" data-scale-box data-free-resize>
+          <img class="wash-asset" src="assets/stickers/title-wash.png" alt="" draggable="false" />
+        </div>
         <h1 class="placed title" data-edit="text" data-name="title">You're<br />Invited!</h1>
-        <div class="placed hl" data-edit="sticker" data-name="highlight">
+        <div class="placed hl" data-edit="sticker" data-name="highlight" data-scale-box data-free-resize>
           <canvas class="hl-asset" width="720" height="266" aria-hidden="true"></canvas>
         </div>
         <p class="placed hl-label hl-top" data-edit="text" data-name="hl-top">CELEBRATE WITH US</p>
@@ -85,9 +110,11 @@
       <path id="tear-shadow-path" fill="#000" filter="url(#body-onto-hero)" />
     </svg>
 
+    <script src="js/config.js"></script>
     <script src="js/layout.js"></script>
     <script>
       Bday.bootHero();
     </script>
+    <script src="js/mobile-body.js"></script>
   </body>
 </html>

@@ -1,146 +1,1207 @@
 {
-  "disco-l": {
-    "x": "-46px",
-    "y": "-50px",
-    "z": "1",
-    "r": "-28deg",
-    "w": "270px"
+  "desktop": {
+    "disco-l": {
+      "x": "-46px",
+      "y": "-50px",
+      "z": "1",
+      "r": "-28deg",
+      "w": "270px"
+    },
+    "disco-r": {
+      "x": "1406px",
+      "y": "510px",
+      "z": "1",
+      "r": "14deg",
+      "w": "332px"
+    },
+    "spark-d": {
+      "x": "823px",
+      "y": "492px",
+      "z": "3",
+      "r": "0deg",
+      "w": "175px"
+    },
+    "kids": {
+      "x": "186px",
+      "y": "47px",
+      "z": "4",
+      "r": "0deg",
+      "w": "795px"
+    },
+    "dog": {
+      "x": "-186px",
+      "y": "601px",
+      "z": "5",
+      "r": "23deg",
+      "w": "230px"
+    },
+    "megaphone": {
+      "x": "886px",
+      "y": "-34px",
+      "z": "5",
+      "r": "-21deg",
+      "w": "329px"
+    },
+    "cherries": {
+      "x": "1142px",
+      "y": "23px",
+      "z": "6",
+      "r": "-11deg",
+      "w": "137px"
+    },
+    "kiss": {
+      "x": "1504px",
+      "y": "321px",
+      "z": "6",
+      "r": "-12deg",
+      "w": "285px"
+    },
+    "spark-3": {
+      "x": "1391px",
+      "y": "87px",
+      "z": "5",
+      "r": "0deg",
+      "w": "194px"
+    },
+    "star-2": {
+      "x": "1000px",
+      "y": "640px",
+      "z": "6",
+      "r": "-15deg",
+      "w": "65px"
+    },
+    "note-1": {
+      "x": "-119px",
+      "y": "271px",
+      "z": "7",
+      "r": "-22deg",
+      "fontSize": "99px",
+      "text": "hi it's"
+    },
+    "note-our": {
+      "x": "101px",
+      "y": "232px",
+      "z": "7",
+      "r": "-1deg",
+      "fontSize": "99px",
+      "text": "our"
+    },
+    "note-bday": {
+      "x": "-46px",
+      "y": "328px",
+      "z": "7",
+      "r": "-13deg",
+      "fontSize": "99px",
+      "text": "bday"
+    },
+    "note-2": {
+      "x": "-61px",
+      "y": "477px",
+      "z": "7",
+      "r": "-11deg",
+      "fontSize": "64px",
+      "text": "hope u can"
+    },
+    "note-make": {
+      "x": "21px",
+      "y": "508px",
+      "z": "7",
+      "r": "-9deg",
+      "fontSize": "64px",
+      "text": "make it"
+    },
+    "title": {
+      "x": "955px",
+      "y": "251px",
+      "z": "7",
+      "r": "-10deg",
+      "fontSize": "133px",
+      "text": "You're\nInvited!"
+    },
+    "highlight": {
+      "x": "965px",
+      "y": "485px",
+      "z": "7",
+      "r": "-6deg",
+      "w": "480px",
+      "h": "163px"
+    },
+    "hl-top": {
+      "x": "941px",
+      "y": "479px",
+      "z": "8",
+      "r": "-6deg",
+      "w": "520px",
+      "fontSize": "62px",
+      "text": "CELEBRATE WITH US"
+    },
+    "hl-bot": {
+      "x": "953px",
+      "y": "572px",
+      "z": "8",
+      "r": "-5deg",
+      "w": "520px",
+      "fontSize": "62px",
+      "text": "12/09/2026"
+    },
+    "wide-details-paper": {
+      "x": "60px",
+      "y": "90px",
+      "z": "1",
+      "r": "-1deg",
+      "w": "1320px",
+      "h": "310px",
+      "edgeSeed": 20261201,
+      "edgeStyle": "separator"
+    },
+    "wide-when-icon": {
+      "x": "105px",
+      "y": "150px",
+      "z": "3",
+      "r": "-4deg",
+      "w": "72px"
+    },
+    "wide-when-title": {
+      "x": "195px",
+      "y": "140px",
+      "z": "3",
+      "r": "-1deg",
+      "w": "270px",
+      "fontSize": "54px",
+      "text": "WHEN?"
+    },
+    "wide-when-copy": {
+      "x": "195px",
+      "y": "205px",
+      "z": "3",
+      "r": "0deg",
+      "w": "300px",
+      "fontSize": "27px",
+      "text": "12th September 2026\n7:00 PM onwards"
+    },
+    "wide-where-icon": {
+      "x": "535px",
+      "y": "150px",
+      "z": "3",
+      "r": "3deg",
+      "w": "72px"
+    },
+    "wide-where-title": {
+      "x": "625px",
+      "y": "140px",
+      "z": "3",
+      "r": "1deg",
+      "w": "250px",
+      "fontSize": "54px",
+      "text": "WHERE?"
+    },
+    "wide-where-copy": {
+      "x": "625px",
+      "y": "205px",
+      "z": "3",
+      "r": "0deg",
+      "w": "315px",
+      "fontSize": "25px",
+      "text": "Uru stays\nKanakamamidi, Hyderabad, Telangana\nView on Google Maps \u2197"
+    },
+    "wide-dress-icon": {
+      "x": "965px",
+      "y": "150px",
+      "z": "3",
+      "r": "-5deg",
+      "w": "75px"
+    },
+    "wide-dress-title": {
+      "x": "1050px",
+      "y": "140px",
+      "z": "3",
+      "r": "-1deg",
+      "w": "285px",
+      "fontSize": "34px",
+      "text": "DRESS CODE?"
+    },
+    "wide-dress-copy": {
+      "x": "1050px",
+      "y": "196px",
+      "z": "3",
+      "r": "0deg",
+      "w": "275px",
+      "fontSize": "23px",
+      "text": "After Dark \u2014 dark, elegant tones or soft neutrals.\nPlease avoid bright or neon colours."
+    },
+    "wide-rule-1": {
+      "x": "413px",
+      "y": "228px",
+      "z": "3",
+      "r": "90deg",
+      "w": "190px"
+    },
+    "wide-rule-2": {
+      "x": "848px",
+      "y": "238px",
+      "z": "3",
+      "r": "90deg",
+      "w": "190px"
+    },
+    "wide-inspo-paper": {
+      "x": "65px",
+      "y": "530px",
+      "z": "1",
+      "r": "-1deg",
+      "w": "650px",
+      "h": "770px",
+      "edgeSeed": 20261204,
+      "edgeStyle": "separator"
+    },
+    "wide-inspo-title-ink": {
+      "x": "45px",
+      "y": "470px",
+      "z": "3",
+      "r": "-4deg",
+      "w": "600px",
+      "h": "112px",
+      "edgeSeed": 20261205,
+      "edgeStyle": "separator"
+    },
+    "wide-inspo-title": {
+      "x": "75px",
+      "y": "505px",
+      "z": "4",
+      "r": "-4deg",
+      "w": "540px",
+      "fontSize": "48px",
+      "text": "DRESS CODE INSPO"
+    },
+    "wide-pinterest-mark": {
+      "x": "125px",
+      "y": "595px",
+      "z": "4",
+      "r": "-8deg",
+      "w": "72px"
+    },
+    "wide-inspo-note": {
+      "x": "215px",
+      "y": "585px",
+      "z": "4",
+      "r": "-6deg",
+      "w": "300px",
+      "fontSize": "33px",
+      "text": "view the full board\non Pinterest \u2198"
+    },
+    "wide-inspo-collage": {
+      "x": "100px",
+      "y": "710px",
+      "z": "3",
+      "r": "0deg",
+      "w": "575px",
+      "h": "520px"
+    },
+    "wide-inspo-star": {
+      "x": "75px",
+      "y": "1160px",
+      "z": "4",
+      "r": "-12deg",
+      "w": "92px"
+    },
+    "wide-invite": {
+      "x": "835px",
+      "y": "495px",
+      "z": "2",
+      "r": "1deg",
+      "w": "500px"
+    },
+    "wide-rsvp-ink": {
+      "x": "-4px",
+      "y": "1377px",
+      "z": "2",
+      "r": "0deg",
+      "w": "1440px",
+      "h": "430px"
+    },
+    "wide-rsvp-heading": {
+      "x": "90px",
+      "y": "1490px",
+      "z": "4",
+      "r": "-6deg",
+      "w": "280px",
+      "fontSize": "112px",
+      "fontFamily": "\"handwriting-8\", cursive",
+      "text": "RSVP"
+    },
+    "wide-rsvp-heart": {
+      "x": "183px",
+      "y": "1590px",
+      "z": "4",
+      "r": "-10deg",
+      "w": "90px"
+    },
+    "wide-rsvp-primary": {
+      "x": "572px",
+      "y": "1532px",
+      "z": "4",
+      "r": "0deg",
+      "w": "560px"
+    },
+    "wide-rsvp-small": {
+      "x": "520px",
+      "y": "1650px",
+      "z": "4",
+      "r": "1deg",
+      "w": "350px",
+      "fontSize": "34px",
+      "fontFamily": "\"handwriting-8\", cursive",
+      "text": "(no hard feelings!)"
+    },
+    "wide-rsvp-note": {
+      "x": "1015px",
+      "y": "1510px",
+      "z": "4",
+      "r": "-7deg",
+      "w": "210px",
+      "fontSize": "48px",
+      "fontFamily": "\"handwriting-8\", cursive",
+      "text": "can\u2019t wait\nto see you!"
+    },
+    "wide-rsvp-note-heart": {
+      "x": "1225px",
+      "y": "1602px",
+      "z": "4",
+      "r": "12deg",
+      "w": "78px"
+    },
+    "wide-rsvp-star": {
+      "x": "1300px",
+      "y": "1450px",
+      "z": "4",
+      "r": "8deg",
+      "w": "100px"
+    }
   },
-  "disco-r": {
-    "x": "1406px",
-    "y": "510px",
-    "z": "1",
-    "r": "14deg",
-    "w": "332px"
+  "medium": {
+    "disco-l": {
+      "x": "114px",
+      "y": "-62px",
+      "z": "1",
+      "r": "-28deg",
+      "w": "270px"
+    },
+    "disco-r": {
+      "x": "1340px",
+      "y": "517px",
+      "z": "1",
+      "r": "14deg",
+      "w": "332px"
+    },
+    "spark-d": {
+      "x": "809px",
+      "y": "569px",
+      "z": "3",
+      "r": "0deg",
+      "w": "175px"
+    },
+    "kids": {
+      "x": "242px",
+      "y": "121px",
+      "z": "4",
+      "r": "0deg",
+      "w": "762px"
+    },
+    "dog": {
+      "x": "-19px",
+      "y": "600px",
+      "z": "5",
+      "r": "23deg",
+      "w": "230px"
+    },
+    "megaphone": {
+      "x": "824px",
+      "y": "-28px",
+      "z": "5",
+      "r": "-21deg",
+      "w": "329px"
+    },
+    "cherries": {
+      "x": "1095px",
+      "y": "57px",
+      "z": "6",
+      "r": "-11deg",
+      "w": "124px"
+    },
+    "kiss": {
+      "x": "1330px",
+      "y": "253px",
+      "z": "6",
+      "r": "-12deg",
+      "w": "285px"
+    },
+    "spark-3": {
+      "x": "1249px",
+      "y": "38px",
+      "z": "5",
+      "r": "0deg",
+      "w": "194px"
+    },
+    "star-2": {
+      "x": "1036px",
+      "y": "665px",
+      "z": "6",
+      "r": "-15deg",
+      "w": "65px"
+    },
+    "note-1": {
+      "x": "13px",
+      "y": "235px",
+      "z": "7",
+      "r": "-22deg",
+      "fontSize": "99px",
+      "text": "hi it's"
+    },
+    "note-our": {
+      "x": "223px",
+      "y": "205px",
+      "z": "7",
+      "r": "-1deg",
+      "fontSize": "99px",
+      "text": "our"
+    },
+    "note-bday": {
+      "x": "67px",
+      "y": "310px",
+      "z": "7",
+      "r": "-13deg",
+      "fontSize": "99px",
+      "text": "bday"
+    },
+    "note-2": {
+      "x": "62px",
+      "y": "471px",
+      "z": "7",
+      "r": "-11deg",
+      "fontSize": "64px",
+      "text": "hope u can"
+    },
+    "note-make": {
+      "x": "121px",
+      "y": "513px",
+      "z": "7",
+      "r": "-9deg",
+      "fontSize": "64px",
+      "text": "make it"
+    },
+    "title": {
+      "x": "909px",
+      "y": "241px",
+      "z": "7",
+      "r": "-10deg",
+      "fontSize": "133px",
+      "text": "You're\nInvited!"
+    },
+    "highlight": {
+      "x": "910px",
+      "y": "461px",
+      "z": "7",
+      "r": "-6deg",
+      "w": "480px",
+      "h": "163px"
+    },
+    "hl-top": {
+      "x": "891px",
+      "y": "458px",
+      "z": "8",
+      "r": "-6deg",
+      "w": "520px",
+      "fontSize": "62px",
+      "text": "CELEBRATE WITH US"
+    },
+    "hl-bot": {
+      "x": "899px",
+      "y": "549px",
+      "z": "8",
+      "r": "-5deg",
+      "w": "520px",
+      "fontSize": "62px",
+      "text": "12/09/2026"
+    },
+    "wide-details-paper": {
+      "x": "60px",
+      "y": "90px",
+      "z": "1",
+      "r": "-1deg",
+      "w": "1320px",
+      "h": "310px",
+      "edgeSeed": 20261201,
+      "edgeStyle": "separator"
+    },
+    "wide-when-icon": {
+      "x": "105px",
+      "y": "150px",
+      "z": "3",
+      "r": "-4deg",
+      "w": "72px"
+    },
+    "wide-when-title": {
+      "x": "195px",
+      "y": "140px",
+      "z": "3",
+      "r": "-1deg",
+      "w": "270px",
+      "fontSize": "54px",
+      "text": "WHEN?"
+    },
+    "wide-when-copy": {
+      "x": "195px",
+      "y": "205px",
+      "z": "3",
+      "r": "0deg",
+      "w": "300px",
+      "fontSize": "27px",
+      "text": "12th September 2026\n7:00 PM onwards"
+    },
+    "wide-where-icon": {
+      "x": "535px",
+      "y": "150px",
+      "z": "3",
+      "r": "3deg",
+      "w": "72px"
+    },
+    "wide-where-title": {
+      "x": "625px",
+      "y": "140px",
+      "z": "3",
+      "r": "1deg",
+      "w": "250px",
+      "fontSize": "54px",
+      "text": "WHERE?"
+    },
+    "wide-where-copy": {
+      "x": "625px",
+      "y": "205px",
+      "z": "3",
+      "r": "0deg",
+      "w": "315px",
+      "fontSize": "25px",
+      "text": "Uru stays\nKanakamamidi, Hyderabad, Telangana\nView on Google Maps \u2197"
+    },
+    "wide-dress-icon": {
+      "x": "965px",
+      "y": "150px",
+      "z": "3",
+      "r": "-5deg",
+      "w": "75px"
+    },
+    "wide-dress-title": {
+      "x": "1050px",
+      "y": "140px",
+      "z": "3",
+      "r": "-1deg",
+      "w": "285px",
+      "fontSize": "34px",
+      "text": "DRESS CODE?"
+    },
+    "wide-dress-copy": {
+      "x": "1050px",
+      "y": "196px",
+      "z": "3",
+      "r": "0deg",
+      "w": "275px",
+      "fontSize": "23px",
+      "text": "After Dark \u2014 dark, elegant tones or soft neutrals.\nPlease avoid bright or neon colours."
+    },
+    "wide-rule-1": {
+      "x": "390px",
+      "y": "240px",
+      "z": "3",
+      "r": "90deg",
+      "w": "190px"
+    },
+    "wide-rule-2": {
+      "x": "847px",
+      "y": "237px",
+      "z": "3",
+      "r": "90deg",
+      "w": "190px"
+    },
+    "wide-inspo-paper": {
+      "x": "65px",
+      "y": "530px",
+      "z": "1",
+      "r": "-1deg",
+      "w": "650px",
+      "h": "770px",
+      "edgeSeed": 20261204,
+      "edgeStyle": "separator"
+    },
+    "wide-inspo-title-ink": {
+      "x": "45px",
+      "y": "470px",
+      "z": "3",
+      "r": "-4deg",
+      "w": "600px",
+      "h": "112px",
+      "edgeSeed": 20261205,
+      "edgeStyle": "separator"
+    },
+    "wide-inspo-title": {
+      "x": "75px",
+      "y": "505px",
+      "z": "4",
+      "r": "-4deg",
+      "w": "540px",
+      "fontSize": "48px",
+      "text": "DRESS CODE INSPO"
+    },
+    "wide-pinterest-mark": {
+      "x": "125px",
+      "y": "595px",
+      "z": "4",
+      "r": "-8deg",
+      "w": "72px"
+    },
+    "wide-inspo-note": {
+      "x": "215px",
+      "y": "585px",
+      "z": "4",
+      "r": "-6deg",
+      "w": "300px",
+      "fontSize": "33px",
+      "text": "view the full board\non Pinterest \u2198"
+    },
+    "wide-inspo-collage": {
+      "x": "100px",
+      "y": "710px",
+      "z": "3",
+      "r": "0deg",
+      "w": "575px",
+      "h": "520px"
+    },
+    "wide-inspo-star": {
+      "x": "75px",
+      "y": "1160px",
+      "z": "4",
+      "r": "-12deg",
+      "w": "92px"
+    },
+    "wide-invite": {
+      "x": "835px",
+      "y": "495px",
+      "z": "2",
+      "r": "1deg",
+      "w": "500px"
+    },
+    "wide-rsvp-ink": {
+      "x": "0px",
+      "y": "1370px",
+      "z": "2",
+      "r": "0deg",
+      "w": "1440px",
+      "h": "430px"
+    },
+    "wide-rsvp-heading": {
+      "x": "90px",
+      "y": "1490px",
+      "z": "4",
+      "r": "-6deg",
+      "w": "280px",
+      "fontSize": "112px",
+      "fontFamily": "\"handwriting-8\", cursive",
+      "text": "RSVP"
+    },
+    "wide-rsvp-heart": {
+      "x": "170px",
+      "y": "1600px",
+      "z": "4",
+      "r": "-10deg",
+      "w": "90px"
+    },
+    "wide-rsvp-primary": {
+      "x": "574px",
+      "y": "1533px",
+      "z": "4",
+      "r": "0deg",
+      "w": "560px"
+    },
+    "wide-rsvp-small": {
+      "x": "520px",
+      "y": "1650px",
+      "z": "4",
+      "r": "1deg",
+      "w": "350px",
+      "fontSize": "34px",
+      "fontFamily": "\"handwriting-8\", cursive",
+      "text": "(no hard feelings!)"
+    },
+    "wide-rsvp-note": {
+      "x": "1080px",
+      "y": "1500px",
+      "z": "4",
+      "r": "-7deg",
+      "w": "210px",
+      "fontSize": "48px",
+      "fontFamily": "\"handwriting-8\", cursive",
+      "text": "can\u2019t wait\nto see you!"
+    },
+    "wide-rsvp-note-heart": {
+      "x": "1140px",
+      "y": "1620px",
+      "z": "4",
+      "r": "12deg",
+      "w": "78px"
+    },
+    "wide-rsvp-star": {
+      "x": "1300px",
+      "y": "1450px",
+      "z": "4",
+      "r": "8deg",
+      "w": "100px"
+    }
   },
-  "spark-d": {
-    "x": "823px",
-    "y": "492px",
-    "z": "3",
-    "r": "0deg",
-    "w": "175px"
-  },
-  "kids": {
-    "x": "186px",
-    "y": "47px",
-    "z": "4",
-    "r": "0deg",
-    "w": "795px"
-  },
-  "dog": {
-    "x": "-186px",
-    "y": "601px",
-    "z": "5",
-    "r": "23deg",
-    "w": "230px"
-  },
-  "megaphone": {
-    "x": "886px",
-    "y": "-34px",
-    "z": "5",
-    "r": "-21deg",
-    "w": "329px"
-  },
-  "cherries": {
-    "x": "1142px",
-    "y": "23px",
-    "z": "6",
-    "r": "-11deg",
-    "w": "137px"
-  },
-  "kiss": {
-    "x": "1504px",
-    "y": "321px",
-    "z": "6",
-    "r": "-12deg",
-    "w": "285px"
-  },
-  "spark-3": {
-    "x": "1391px",
-    "y": "87px",
-    "z": "5",
-    "r": "0deg",
-    "w": "194px"
-  },
-  "star-2": {
-    "x": "1000px",
-    "y": "640px",
-    "z": "6",
-    "r": "-15deg",
-    "w": "65px"
-  },
-  "note-1": {
-    "x": "-119px",
-    "y": "271px",
-    "z": "7",
-    "r": "-22deg",
-    "fontSize": "99px",
-    "text": "hi it's"
-  },
-  "note-our": {
-    "x": "101px",
-    "y": "232px",
-    "z": "7",
-    "r": "-1deg",
-    "fontSize": "99px",
-    "text": "our"
-  },
-  "note-bday": {
-    "x": "-46px",
-    "y": "328px",
-    "z": "7",
-    "r": "-13deg",
-    "fontSize": "99px",
-    "text": "bday"
-  },
-  "note-2": {
-    "x": "-61px",
-    "y": "477px",
-    "z": "7",
-    "r": "-11deg",
-    "fontSize": "64px",
-    "text": "hope u can"
-  },
-  "note-make": {
-    "x": "21px",
-    "y": "508px",
-    "z": "7",
-    "r": "-9deg",
-    "fontSize": "64px",
-    "text": "make it"
-  },
-  "title": {
-    "x": "955px",
-    "y": "251px",
-    "z": "7",
-    "r": "-10deg",
-    "fontSize": "133px",
-    "text": "You're\nInvited!"
-  },
-  "highlight": {
-    "x": "965px",
-    "y": "485px",
-    "z": "7",
-    "r": "-6deg",
-    "w": "480px",
-    "h": "163px"
-  },
-  "hl-top": {
-    "x": "941px",
-    "y": "479px",
-    "z": "8",
-    "r": "-6deg",
-    "w": "520px",
-    "fontSize": "62px",
-    "text": "CELEBRATE WITH US"
-  },
-  "hl-bot": {
-    "x": "953px",
-    "y": "572px",
-    "z": "8",
-    "r": "-5deg",
-    "w": "520px",
-    "fontSize": "62px",
-    "text": "12/09/2026"
+  "mobile": {
+    "disco-l": {
+      "x": "48px",
+      "y": "-995px",
+      "z": "1",
+      "r": "-28deg",
+      "w": "270px"
+    },
+    "disco-r": {
+      "x": "1239px",
+      "y": "1607px",
+      "z": "5",
+      "r": "-15deg",
+      "w": "332px"
+    },
+    "spark-d": {
+      "x": "1003px",
+      "y": "625px",
+      "z": "3",
+      "r": "0deg",
+      "w": "175px"
+    },
+    "kids": {
+      "x": "376px",
+      "y": "-1022px",
+      "z": "4",
+      "r": "0deg",
+      "w": "1005px"
+    },
+    "dog": {
+      "x": "-107px",
+      "y": "2071px",
+      "z": "5",
+      "r": "23deg",
+      "w": "556px"
+    },
+    "megaphone": {
+      "x": "1150px",
+      "y": "-1086px",
+      "z": "5",
+      "r": "-21deg",
+      "w": "403px"
+    },
+    "cherries": {
+      "x": "1206px",
+      "y": "-754px",
+      "z": "6",
+      "r": "-11deg",
+      "w": "137px"
+    },
+    "kiss": {
+      "x": "1149px",
+      "y": "-63px",
+      "z": "6",
+      "r": "-23deg",
+      "w": "336px"
+    },
+    "spark-3": {
+      "x": "1142px",
+      "y": "-475px",
+      "z": "5",
+      "r": "-8deg",
+      "w": "251px"
+    },
+    "star-2": {
+      "x": "346px",
+      "y": "-588px",
+      "z": "6",
+      "r": "-15deg",
+      "w": "65px"
+    },
+    "hearts": {
+      "x": "-116px",
+      "y": "-287px",
+      "z": "5",
+      "r": "26deg",
+      "w": "308px"
+    },
+    "xoxo": {
+      "x": "3px",
+      "y": "1614px",
+      "z": "6",
+      "r": "-8deg",
+      "w": "320px"
+    },
+    "cherries-2": {
+      "x": "1113px",
+      "y": "2097px",
+      "z": "6",
+      "r": "16deg",
+      "w": "142px"
+    },
+    "kiss-red": {
+      "x": "1166px",
+      "y": "1311px",
+      "z": "6",
+      "r": "-16deg",
+      "w": "179px"
+    },
+    "balloon-21": {
+      "x": "122px",
+      "y": "-18px",
+      "z": "5",
+      "r": "-8deg",
+      "w": "300px"
+    },
+    "ribbon": {
+      "x": "907px",
+      "y": "1316px",
+      "z": "5",
+      "r": "-16deg",
+      "w": "255px"
+    },
+    "heart": {
+      "x": "1261px",
+      "y": "2023px",
+      "z": "6",
+      "r": "-12deg",
+      "w": "158px"
+    },
+    "note-1": {
+      "x": "47px",
+      "y": "-673px",
+      "z": "7",
+      "r": "-22deg",
+      "fontSize": "166px",
+      "text": "hi it's"
+    },
+    "note-our": {
+      "x": "367px",
+      "y": "-757px",
+      "z": "7",
+      "r": "-12deg",
+      "fontSize": "166px",
+      "text": "our"
+    },
+    "note-bday": {
+      "x": "153px",
+      "y": "-613px",
+      "z": "7",
+      "r": "-22deg",
+      "fontSize": "166px",
+      "text": "bday"
+    },
+    "note-2": {
+      "x": "136px",
+      "y": "-403px",
+      "z": "7",
+      "r": "-19deg",
+      "fontSize": "78px",
+      "text": "hope u can"
+    },
+    "note-make": {
+      "x": "215px",
+      "y": "-365px",
+      "z": "7",
+      "r": "-17deg",
+      "fontSize": "78px",
+      "text": "make it"
+    },
+    "title": {
+      "x": "459px",
+      "y": "-270px",
+      "z": "7",
+      "r": "-7deg",
+      "fontSize": "205px",
+      "text": "You're\nInvited!"
+    },
+    "title-wash": {
+      "x": "414px",
+      "y": "-291px",
+      "z": "6",
+      "r": "-5deg",
+      "w": "859px",
+      "h": "400px"
+    },
+    "highlight": {
+      "x": "462px",
+      "y": "40px",
+      "z": "7",
+      "r": "-6deg",
+      "w": "608px",
+      "h": "223px"
+    },
+    "hl-top": {
+      "x": "485px",
+      "y": "41px",
+      "z": "8",
+      "r": "-6deg",
+      "w": "520px",
+      "fontSize": "80px",
+      "text": "CELEBRATE WITH US"
+    },
+    "hl-bot": {
+      "x": "514px",
+      "y": "164px",
+      "z": "8",
+      "r": "-5deg",
+      "w": "520px",
+      "fontSize": "80px",
+      "text": "12/09/2026"
+    },
+    "details-paper": {
+      "x": "41px",
+      "y": "300px",
+      "z": "1",
+      "r": "-1deg",
+      "w": "707px",
+      "h": "1353px",
+      "edgeSeed": 20260929,
+      "edgeStyle": "separator"
+    },
+    "details-when-icon": {
+      "x": "98px",
+      "y": "395px",
+      "z": "3",
+      "r": "-3deg",
+      "w": "105px"
+    },
+    "details-when-title": {
+      "x": "224px",
+      "y": "407px",
+      "z": "3",
+      "r": "-1deg",
+      "w": "420px",
+      "fontSize": "59px",
+      "fontFamily": "\"handwriting-8\", cursive",
+      "text": "WHEN?"
+    },
+    "details-when-copy": {
+      "x": "222px",
+      "y": "493px",
+      "z": "3",
+      "r": "0deg",
+      "w": "420px",
+      "fontSize": "35px",
+      "text": "12th September 2026\n7:00 PM onwards"
+    },
+    "details-rule-1": {
+      "x": "135px",
+      "y": "628px",
+      "z": "3",
+      "r": "-3deg",
+      "w": "420px"
+    },
+    "details-where-icon": {
+      "x": "108px",
+      "y": "703px",
+      "z": "3",
+      "r": "4deg",
+      "w": "105px"
+    },
+    "details-where-title": {
+      "x": "223px",
+      "y": "699px",
+      "z": "3",
+      "r": "-1deg",
+      "w": "420px",
+      "fontSize": "59px",
+      "fontFamily": "\"handwriting-8\", cursive",
+      "text": "WHERE?"
+    },
+    "details-where-copy": {
+      "x": "220px",
+      "y": "769px",
+      "z": "3",
+      "r": "0deg",
+      "w": "470px",
+      "fontSize": "35px",
+      "text": "Uru stays\nKanakamamidi, Hyderabad,\nTelangana\nView on Google Maps \u2197"
+    },
+    "details-rule-2": {
+      "x": "147px",
+      "y": "1043px",
+      "z": "3",
+      "r": "2deg",
+      "w": "350px"
+    },
+    "details-dress-icon": {
+      "x": "95px",
+      "y": "1098px",
+      "z": "3",
+      "r": "-7deg",
+      "w": "110px"
+    },
+    "details-dress-title": {
+      "x": "225px",
+      "y": "1128px",
+      "z": "3",
+      "r": "-1deg",
+      "w": "500px",
+      "fontSize": "42px",
+      "fontFamily": "\"handwriting-8\", cursive",
+      "text": "DRESS CODE?"
+    },
+    "details-dress-copy": {
+      "x": "218px",
+      "y": "1209px",
+      "z": "3",
+      "r": "0deg",
+      "w": "500px",
+      "fontSize": "26px",
+      "text": "After Dark \u2014 dark, elegant tones\nor soft neutrals. Please avoid\nbright or neon colours."
+    },
+    "details-aside": {
+      "x": "288px",
+      "y": "1468px",
+      "z": "3",
+      "r": "-5deg",
+      "w": "350px",
+      "fontSize": "36px",
+      "fontFamily": "\"handwriting-8\", cursive",
+      "text": "Dress it up,\nkeep it classy."
+    },
+    "details-heart": {
+      "x": "634px",
+      "y": "1512px",
+      "z": "3",
+      "r": "11deg",
+      "w": "65px"
+    },
+    "details-star": {
+      "x": "236px",
+      "y": "1530px",
+      "z": "3",
+      "r": "-9deg",
+      "w": "52px"
+    },
+    "inspo-paper": {
+      "x": "827px",
+      "y": "399px",
+      "z": "1",
+      "r": "1deg",
+      "w": "560px",
+      "h": "1074px",
+      "edgeSeed": 20261024,
+      "edgeStyle": "separator"
+    },
+    "inspo-title-ink": {
+      "x": "799px",
+      "y": "339px",
+      "z": "3",
+      "r": "-4deg",
+      "w": "560px",
+      "h": "110px",
+      "edgeSeed": 20261014,
+      "edgeStyle": "separator"
+    },
+    "inspo-title": {
+      "x": "810px",
+      "y": "376px",
+      "z": "4",
+      "r": "-4deg",
+      "w": "520px",
+      "fontSize": "48px",
+      "text": "DRESS CODE INSPO"
+    },
+    "inspo-pinterest-mark": {
+      "x": "877px",
+      "y": "467px",
+      "z": "4",
+      "r": "-10deg",
+      "w": "92px"
+    },
+    "inspo-note": {
+      "x": "984px",
+      "y": "452px",
+      "z": "4",
+      "r": "-7deg",
+      "w": "350px",
+      "fontSize": "37px",
+      "fontFamily": "\"handwriting-8\", cursive",
+      "text": "view the full board\non Pinterest \u2198"
+    },
+    "inspo-collage": {
+      "x": "831px",
+      "y": "584px",
+      "z": "3",
+      "r": "0deg",
+      "w": "540px",
+      "h": "720px"
+    },
+    "inspo-star": {
+      "x": "809px",
+      "y": "1278px",
+      "z": "3",
+      "r": "-10deg",
+      "w": "95px"
+    },
+    "rsvp-ink": {
+      "x": "30px",
+      "y": "1598px",
+      "z": "2",
+      "r": "0deg",
+      "w": "1350px",
+      "h": "600px"
+    },
+    "rsvp-heading": {
+      "x": "100px",
+      "y": "1785px",
+      "z": "4",
+      "r": "-7deg",
+      "w": "320px",
+      "fontSize": "120px",
+      "fontFamily": "\"handwriting-8\", cursive",
+      "text": "RSVP"
+    },
+    "rsvp-heart": {
+      "x": "180px",
+      "y": "1902px",
+      "z": "4",
+      "r": "-9deg",
+      "w": "105px"
+    },
+    "rsvp-primary": {
+      "x": "470px",
+      "y": "1822px",
+      "z": "4",
+      "r": "0deg",
+      "w": "650px"
+    },
+    "rsvp-small": {
+      "x": "537px",
+      "y": "1990px",
+      "z": "4",
+      "r": "1deg",
+      "w": "350px",
+      "fontSize": "37px",
+      "fontFamily": "\"handwriting-8\", cursive",
+      "text": "(no hard feelings!)"
+    },
+    "rsvp-note": {
+      "x": "1062px",
+      "y": "1779px",
+      "z": "4",
+      "r": "-8deg",
+      "w": "190px",
+      "fontSize": "48px",
+      "fontFamily": "\"handwriting-8\", cursive",
+      "text": "can\u2019t wait\nto see you!"
+    },
+    "rsvp-note-heart": {
+      "x": "1123px",
+      "y": "1895px",
+      "z": "4",
+      "r": "13deg",
+      "w": "85px"
+    }
   }
 }

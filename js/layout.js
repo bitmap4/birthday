@@ -4,7 +4,13 @@ window.Bday = window.Bday || {};
   const SCRIPT = document.currentScript;
   B.STAGE_W = 1440;
   B.STAGE_H = 820;
-  B.PLACED = {};
+  B.FILE = {};
+  B.forceBreak = null;
+  B.FRAMES = {
+    mobile: { w: 390, h: 844, hero: 1, max: 699 },
+    medium: { w: 1024, h: 768, hero: 0.7, max: 1199 },
+    desktop: { w: 1585, h: 963, hero: 0.7, max: Infinity },
+  };
   B.NOTE_GROUPS = [
     ["note-1", "note-our", "note-bday"],
     ["note-2", "note-make"],
@@ -59,7 +65,24 @@ window.Bday = window.Bday || {};
     });
   };
 
-  B.items = () => [...document.querySelectorAll(".stage [data-edit]")];
+  B.items = () => [
+    ...document.querySelectorAll(
+      ".stage [data-edit], .body-stage [data-edit]",
+    ),
+  ];
+
+  B.showsOn = function showsOn(el, bp) {
+    const raw = el.dataset.show;
+    if (!raw) return true;
+    const tags = raw.split(/\s+/);
+    if (tags.includes(bp)) return true;
+    if (tags.includes("wide") && bp !== "mobile") return true;
+    return false;
+  };
+
+  B.syncAssets = function syncAssets() {
+    document.documentElement.dataset.break = B.whichBreak();
+  };
 
   B.placedUrl = function placedUrl() {
     return new URL("../placed.json", SCRIPT.src).href;
@@ -75,6 +98,53 @@ window.Bday = window.Bday || {};
     else el.style.setProperty(prop, value);
   };
 
+  B.whichBreak = function whichBreak(w) {
+    if (B.forceBreak && B.FRAMES[B.forceBreak]) return B.forceBreak;
+    const x = w != null ? w : document.documentElement.clientWidth;
+    if (x <= B.FRAMES.mobile.max) return "mobile";
+    if (x <= B.FRAMES.medium.max) return "medium";
+    return "desktop";
+  };
+
+  B.frame = function frame() {
+    return B.FRAMES[B.whichBreak()];
+  };
+
+  B.viewBox = function viewBox() {
+    if (B.forceBreak) {
+      const f = B.frame();
+      return { w: f.w, h: f.h };
+    }
+    return {
+      w: Math.max(120, document.documentElement.clientWidth),
+      h: Math.max(120, window.innerHeight),
+    };
+  };
+
+  B.designScale = function designScale() {
+    const f = B.frame();
+    const v = B.viewBox();
+    return Math.min(v.w / f.w, v.h / f.h);
+  };
+
+  B.normalizeFile = function normalizeFile(raw) {
+    if (raw && raw.desktop && typeof raw.desktop === "object" && !raw.desktop.x) {
+      const copy = (src) => JSON.parse(JSON.stringify(src || {}));
+      return {
+        desktop: copy(raw.desktop),
+        medium: copy(raw.medium || raw.desktop),
+        mobile: copy(raw.mobile || raw.desktop),
+      };
+    }
+    const one = raw || {};
+    const copy = JSON.parse(JSON.stringify(one));
+    return { desktop: one, medium: copy, mobile: JSON.parse(JSON.stringify(one)) };
+  };
+
+  B.layout = function layout() {
+    return B.FILE[B.whichBreak()] || {};
+  };
+
   B.loadPlaced = function loadPlaced() {
     try {
       localStorage.removeItem("bday-hero-v1");
@@ -85,19 +155,19 @@ window.Bday = window.Bday || {};
       const xhr = new XMLHttpRequest();
       xhr.open("GET", B.placedUrl() + "?t=" + Date.now(), false);
       xhr.send();
-      B.PLACED = JSON.parse(xhr.responseText);
+      B.FILE = B.normalizeFile(JSON.parse(xhr.responseText));
     } catch {
-      B.PLACED = B.PLACED || {};
+      B.FILE = B.normalizeFile(B.FILE);
     }
-    return B.PLACED;
+    return B.FILE;
   };
 
   B.savePlaced = function savePlaced() {
-    B.PLACED = B.dumpPlaced();
+    B.dumpPlaced();
     return fetch("/__placed", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(B.PLACED),
+      body: JSON.stringify(B.FILE),
     })
       .then((r) => r.ok)
       .catch(() => false);
@@ -162,7 +232,8 @@ window.Bday = window.Bday || {};
   };
 
   B.applyPlaced = function applyPlaced() {
-    const data = B.PLACED || {};
+    const data = B.layout();
+    const desk = B.FILE.desktop || {};
     B.items().forEach((el) => {
       const o = data[el.dataset.name];
       if (!o) return;
@@ -172,6 +243,8 @@ window.Bday = window.Bday || {};
       if (o.h) B.setVar(el, "--h", o.h);
       if (o.r) B.setVar(el, "--r", o.r);
       if (o.z) B.setVar(el, "--z", o.z);
+      if (o.edgeSeed != null) el.dataset.edgeSeed = String(o.edgeSeed);
+      if (o.edgeStyle) el.dataset.edgeStyle = o.edgeStyle;
       if (el.dataset.edit === "text") {
         if (o.fontSize) {
           if (el.classList.contains("title") || el.classList.contains("hl-label")) {
@@ -190,14 +263,15 @@ window.Bday = window.Bday || {};
         if (o.fontFamily && !el.classList.contains("note")) {
           el.style.fontFamily = o.fontFamily;
         }
-        if (o.text != null && o.text !== "") {
+        const text = o.text || (desk[el.dataset.name] && desk[el.dataset.name].text);
+        if (text != null && text !== "") {
           if (el.dataset.name === "title") {
-            el.innerHTML = String(o.text)
+            el.innerHTML = String(text)
               .replace(/&/g, "&amp;")
               .replace(/</g, "&lt;")
               .replace(/\n/g, "<br>");
           } else {
-            el.innerText = o.text;
+            el.innerText = text;
           }
         }
       }
@@ -222,6 +296,8 @@ window.Bday = window.Bday || {};
     add(o, "r", read("--r"));
     add(o, "w", read("--w"));
     add(o, "h", read("--h"));
+    if (el.dataset.edgeSeed) o.edgeSeed = Number(el.dataset.edgeSeed);
+    if (el.dataset.edgeStyle) o.edgeStyle = el.dataset.edgeStyle;
     if (el.dataset.edit === "text") {
       add(
         o,
@@ -242,47 +318,122 @@ window.Bday = window.Bday || {};
   };
 
   B.dumpPlaced = function dumpPlaced() {
-    const data = {};
+    const key = B.whichBreak();
+    const prev = B.FILE[key] || {};
     B.items().forEach((el) => {
-      if (el.dataset.name && el.classList.contains("placed")) {
-        data[el.dataset.name] = B.snapshot(el);
-      }
+      if (!el.dataset.name || !el.classList.contains("placed")) return;
+      if (!B.showsOn(el, key)) return;
+      prev[el.dataset.name] = B.snapshot(el);
     });
-    return data;
+    B.FILE[key] = prev;
+    B.items().forEach((el) => {
+      if (el.dataset.edit !== "text" || !el.dataset.name) return;
+      const t = prev[el.dataset.name] && prev[el.dataset.name].text;
+      if (t == null) return;
+      ["desktop", "medium", "mobile"].forEach((k) => {
+        if (B.FILE[k] && B.FILE[k][el.dataset.name]) B.FILE[k][el.dataset.name].text = t;
+      });
+    });
+    return B.FILE;
   };
 
   B.save = function save() {
     B.savePlaced();
   };
 
-  B.heroMetrics = function heroMetrics(hero) {
-    let probe = document.getElementById("bday-svh");
-    if (!probe) {
-      probe = document.createElement("div");
-      probe.id = "bday-svh";
-      probe.setAttribute("aria-hidden", "true");
-      probe.style.cssText =
-        "position:fixed;left:0;top:0;width:100%;height:75svh;visibility:hidden;pointer-events:none";
-      document.documentElement.appendChild(probe);
-    }
-    return {
-      w: Math.max(120, hero ? hero.clientWidth : probe.offsetWidth),
-      h: Math.max(120, probe.offsetHeight),
-    };
+  B.syncMobileEnd = function syncMobileEnd(hero) {
+    if (B.whichBreak() !== "mobile") return;
+    const node = hero || document.querySelector(".hero");
+    const cherry = document.querySelector('[data-name="cherries-2"]');
+    if (!node || !cherry || !cherry.offsetHeight) return;
+    const frame = document.querySelector(".ed-frame");
+    const match = String(frame?.style.transform || "").match(
+      /scale\(([-0-9.]+)\)/,
+    );
+    const outerScale = match ? parseFloat(match[1]) || 1 : 1;
+    const heroTop = node.getBoundingClientRect().top;
+    const cherryBottom = cherry.getBoundingClientRect().bottom;
+    const height = Math.ceil((cherryBottom - heroTop) / outerScale + 8);
+    document.documentElement.style.setProperty("--hero", height + "px");
+    window.dispatchEvent(
+      new CustomEvent("bday-mobile-end", { detail: { height } }),
+    );
   };
 
-  B.fitStage = function fitStage(hero) {
+  B.applyFrame = function applyFrame(hero) {
+    const name = B.whichBreak();
+    const f = B.frame();
+    const v = B.viewBox();
+    const ds = B.designScale();
+    const root = document.documentElement;
+    root.dataset.break = name;
+    B.syncAssets();
     const stage = document.querySelector(".stage");
     const node = hero || document.querySelector(".hero");
     if (!stage) return 1;
-    const { w, h } = B.heroMetrics(node);
-    const s = Math.min(w / B.STAGE_W, h / B.STAGE_H);
+    const w = node ? node.clientWidth : v.w;
+    let heroH;
+    let stageTop;
+    let fitH;
+    if (name === "mobile") {
+      const mobileScale = v.w / f.w;
+      stageTop = 392 * mobileScale;
+      fitH = f.h * mobileScale;
+      root.style.setProperty("--tear", "0px");
+    } else {
+      heroH = f.hero * f.h * ds;
+      stageTop = 0.375 * f.h * ds;
+      fitH = 0.75 * f.h * ds;
+      root.style.setProperty("--tear", "28px");
+    }
+    const s = Math.min(w / B.STAGE_W, fitH / B.STAGE_H);
+    if (name === "mobile") {
+      const mobileScale = v.w / f.w;
+      const cherry = document.querySelector('[data-name="cherries-2"]');
+      const cherryY = cherry ? B.cssNum(cherry, "--y", 2097) : 2097;
+      const cherryW = cherry ? B.cssNum(cherry, "--w", 142) : 142;
+      const cherryH = cherry && cherry.offsetHeight ? cherry.offsetHeight : cherryW * (496 / 409);
+      const angle = cherry ? (B.cssNum(cherry, "--r", 0) * Math.PI) / 180 : 0;
+      const rotatedBottom =
+        cherryY +
+        cherryH / 2 +
+        Math.abs(Math.sin(angle)) * cherryW / 2 +
+        Math.abs(Math.cos(angle)) * cherryH / 2;
+      const stageTopEdge = stageTop - (B.STAGE_H * s) / 2;
+      heroH = stageTopEdge + rotatedBottom * s + 8 * mobileScale;
+    }
+    root.style.setProperty("--hero", heroH + "px");
+    root.style.setProperty("--stage-top", stageTop + "px");
     stage.style.setProperty("--fit", String(s));
+    if (B.fitBody) B.fitBody();
+    if (name === "mobile") {
+      requestAnimationFrame(() => B.syncMobileEnd(node));
+    }
     return s;
   };
 
+  B.fitStage = function fitStage(hero) {
+    return B.applyFrame(hero);
+  };
+
+  B.setBreak = function setBreak(name) {
+    if (!B.FRAMES[name]) return;
+    B.forceBreak = name;
+    document.documentElement.dataset.break = name;
+    B.applyFrame();
+    B.applyPlaced();
+    B.paintHighlight();
+  };
+
   B.updateTear = function updateTear(hero, shadowSvg, shadowPath, noise) {
-    if (!hero || !shadowPath) return;
+    if (!hero) return;
+    if (B.whichBreak() === "mobile") {
+      hero.style.clipPath = "none";
+      if (shadowSvg) shadowSvg.style.display = "none";
+      return;
+    }
+    if (shadowSvg) shadowSvg.style.display = "";
+    if (!shadowPath) return;
     const tear = parseFloat(
       getComputedStyle(document.documentElement).getPropertyValue("--tear")
     );
@@ -299,7 +450,7 @@ window.Bday = window.Bday || {};
     hero.style.clipPath = `polygon(${pts.join(",")})`;
 
     if (!shadowSvg) return;
-    const w = document.documentElement.clientWidth;
+    const w = hero.clientWidth || document.documentElement.clientWidth;
     const band = tear * 2;
     const lip = 4;
     shadowSvg.setAttribute("viewBox", `0 0 ${w} ${band}`);
@@ -366,10 +517,10 @@ window.Bday = window.Bday || {};
     return normalize(y);
   }
 
-  B.makeTearNoise = function makeTearNoise() {
+  B.makeTearNoise = function makeTearNoise(seed = 20260826) {
     const N = (1 << 9) + 1;
-    const shape = fbm(N, 0.66, 20260826);
-    const fiber = fbm(N, 0.25, 20260827);
+    const shape = fbm(N, 0.66, seed);
+    const fiber = fbm(N, 0.25, seed + 1);
     return normalize(
       Float64Array.from(shape, (v, i) => v + 0.28 * fiber[i])
     );
@@ -554,9 +705,19 @@ window.Bday = window.Bday || {};
     const noise = B.makeTearNoise();
     B.loadPlaced();
     B.applyPlaced();
+    document.querySelectorAll("img.wash-asset").forEach((el) => {
+      const u = (el.getAttribute("src") || "").split("?")[0];
+      if (u) el.src = u + "?t=" + Date.now();
+    });
+    let lastBreak = B.whichBreak();
     function sync() {
+      B.applyFrame(hero);
+      const now = B.whichBreak();
+      if (now !== lastBreak) {
+        lastBreak = now;
+        B.applyPlaced();
+      }
       B.paintHighlight();
-      B.fitStage(hero);
       B.updateTear(hero, shadowSvg, shadowPath, noise);
     }
     sync();
@@ -567,5 +728,15 @@ window.Bday = window.Bday || {};
   B.fitVal = function fitVal() {
     const stage = document.querySelector(".stage");
     return parseFloat(getComputedStyle(stage).getPropertyValue("--fit")) || 1;
+  };
+
+  B.screenFit = function screenFit() {
+    let k = 1;
+    const box = document.querySelector(".ed-frame");
+    if (box) {
+      const m = String(box.style.transform || "").match(/scale\(([-0-9.]+)\)/);
+      if (m) k = parseFloat(m[1]) || 1;
+    }
+    return B.fitVal() * k;
   };
 })(window.Bday);
