@@ -723,6 +723,25 @@ window.Bday = window.Bday || {};
     sync();
     window.addEventListener("resize", sync);
     window.addEventListener("load", sync);
+
+    const kids = document.querySelector('[data-name="kids"] img');
+    if (kids && !document.body.classList.contains("edit-page")) {
+      const rec = { L: [], R: [] };
+      kids.addEventListener("click", (e) => {
+        if (e.button) return;
+        const box = kids.getBoundingClientRect();
+        const k = e.clientX < box.left + box.width / 2 ? "L" : "R";
+        const now = performance.now();
+        rec[k] = rec[k].filter((t) => now - t <= 3000);
+        rec[k].push(now);
+        if (rec[k].length < 3) return;
+        rec.L = [];
+        rec.R = [];
+        location.assign(
+          new URL(k === "L" ? "assets/out/mansi.png" : "assets/out/romil.mp4", document.baseURI).href,
+        );
+      });
+    }
   };
 
   B.fitVal = function fitVal() {
