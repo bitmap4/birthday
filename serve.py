@@ -132,6 +132,24 @@ class Handler(SimpleHTTPRequestHandler):
         route = self.path.rstrip("/")
         n = int(self.headers.get("Content-Length", 0))
         raw = self.rfile.read(n)
+        if route == "/__rsvp":
+            try:
+                payload = json.loads(raw.decode())
+            except json.JSONDecodeError:
+                self.send_error(400, "json required")
+                return
+            parsed = normalize_rsvp(payload)
+            if not parsed:
+                self.send_error(400, "name and yes/no coming required")
+                return
+            append_rsvp(*parsed)
+            body = json.dumps({"ok": True, "coming": parsed[1]}).encode()
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json")
+            self.send_header("Content-Length", str(len(body)))
+            self.end_headers()
+            self.wfile.write(body)
+            return
         if route == "/__placed":
             body = json.loads(raw.decode())
             if not isinstance(body, dict):
