@@ -1,0 +1,6 @@
+.venv/
+__pycache__/
+.DS_Store
+rsvps.csv
+rsvp-api/local.settings.json
+rsvp-api/.python_packages/
