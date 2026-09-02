@@ -136,6 +136,16 @@ html[data-break="mobile"] .mobile-body {
   paint-order: stroke fill;
 }
 
+.inspo-note::after {
+  content: "";
+  display: inline-block;
+  width: 1.8em;
+  aspect-ratio: 300 / 278;
+  margin-left: 0.08em;
+  background: url("../assets/stickers/arrow-down.png") center / contain no-repeat;
+  vertical-align: -1.4em;
+}
+
 .inspo-collage {
   display: block;
   width: var(--w);
@@ -212,6 +222,20 @@ html[data-break="mobile"] .mobile-body {
   -webkit-appearance: none;
   -webkit-text-stroke: 0.7px currentColor;
   paint-order: stroke fill;
+}
+
+.rsvp-primary::after {
+  content: "";
+  display: block;
+  flex: 0 0 auto;
+  width: 1.4em;
+  aspect-ratio: 300 / 278;
+  background: url("../assets/stickers/arrow-right.png") center / contain no-repeat;
+  filter:
+    drop-shadow(0.8px 0 0 var(--red))
+    drop-shadow(-0.8px 0 0 var(--red))
+    drop-shadow(0 0.8px 0 var(--red))
+    drop-shadow(0 -0.8px 0 var(--red));
 }
 
 .rsvp-primary strong,

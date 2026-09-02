@@ -244,12 +244,12 @@
       "w": "190px"
     },
     "wide-inspo-paper": {
-      "x": "64.8px",
-      "y": "524px",
+      "x": "65px",
+      "y": "523px",
       "z": "1",
       "r": "-1deg",
-      "w": "587.7px",
-      "h": "863.1px",
+      "w": "588px",
+      "h": "884px",
       "edgeSeed": 20261204,
       "edgeStyle": "separator"
     },
@@ -280,20 +280,20 @@
       "w": "64.8px"
     },
     "wide-inspo-note": {
-      "x": "198px",
-      "y": "579.8px",
+      "x": "199px",
+      "y": "585px",
       "z": "4",
       "r": "-6deg",
       "w": "270px",
       "fontSize": "29.7px",
-      "text": "view the full board\non Pinterest \u2198"
+      "text": "view the full board\non Pinterest"
     },
     "wide-inspo-collage": {
-      "x": "93.6px",
-      "y": "686px",
+      "x": "92px",
+      "y": "699px",
       "z": "3",
       "r": "0deg",
-      "w": "504.9px",
+      "w": "541px",
       "h": "690.3px"
     },
     "wide-inspo-star": {
@@ -664,11 +664,11 @@
       "r": "-6deg",
       "w": "270px",
       "fontSize": "29.7px",
-      "text": "view the full board\non Pinterest \u2198"
+      "text": "view the full board\non Pinterest"
     },
     "wide-inspo-collage": {
-      "x": "94.5px",
-      "y": "686px",
+      "x": "93px",
+      "y": "700px",
       "z": "3",
       "r": "0deg",
       "w": "517.5px",
@@ -1127,7 +1127,7 @@
       "w": "350px",
       "fontSize": "37px",
       "fontFamily": "\"handwriting-8\", cursive",
-      "text": "view the full board\non Pinterest \u2198"
+      "text": "view the full board\non Pinterest"
     },
     "inspo-collage": {
       "x": "831px",

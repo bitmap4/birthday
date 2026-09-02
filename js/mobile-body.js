@@ -61,7 +61,7 @@ keep it classy.</p>
       <a class="placed inspo-banner" data-edit="text" data-name="inspo-title" data-show="mobile" href="${board}" target="_blank" rel="noopener noreferrer">DRESS CODE INSPO</a>
       <span class="placed pinterest-mark" data-edit="sticker" data-name="inspo-pinterest-mark" data-show="mobile" aria-hidden="true"><img src="${asset("assets/stickers/pinterest.svg")}" alt=""></span>
       <a class="placed inspo-note" data-edit="text" data-name="inspo-note" data-show="mobile" href="${board}" target="_blank" rel="noopener noreferrer">view the full board
-on Pinterest ↘</a>
+on Pinterest</a>
       <a class="placed inspo-collage" data-edit="sticker" data-name="inspo-collage" data-show="mobile" href="${board}" target="_blank" rel="noopener noreferrer" aria-label="View dress code inspiration on Pinterest">${photos}</a>
       <span class="placed doodle-svg inspo-star" data-edit="sticker" data-name="inspo-star" data-show="mobile" aria-hidden="true"><img src="${asset("assets/stickers/star-swirl-sketch.svg")}" alt=""></span>
 
@@ -70,7 +70,7 @@ on Pinterest ↘</a>
       </section>
       <h2 class="placed rsvp-heading" data-edit="text" data-name="rsvp-heading" data-show="mobile">RSVP</h2>
       <span class="placed doodle-svg light-doodle" data-edit="sticker" data-name="rsvp-heart" data-show="mobile" aria-hidden="true"><img src="${asset("assets/stickers/heart-sketchy-light.svg")}" alt=""></span>
-      <button type="button" class="placed rsvp-primary" data-edit="sticker" data-name="rsvp-primary" data-show="mobile"><img class="rsvp-brand-icon" src="${asset("assets/stickers/whatsapp.svg")}" alt=""><strong>Yes! I’m coming</strong><span aria-hidden="true">→</span></button>
+      <button type="button" class="placed rsvp-primary" data-edit="sticker" data-name="rsvp-primary" data-show="mobile"><img class="rsvp-brand-icon" src="${asset("assets/stickers/whatsapp.svg")}" alt=""><strong>Yes! I’m coming</strong></button>
       <small class="placed rsvp-small" data-edit="text" data-name="rsvp-small" data-show="mobile">(no hard feelings!)</small>
       <p class="placed rsvp-note" data-edit="text" data-name="rsvp-note" data-show="mobile">can’t wait
 to see you!</p>
@@ -109,7 +109,7 @@ Please avoid bright or neon colours.</p>
       <a class="placed inspo-banner" data-edit="text" data-name="wide-inspo-title" data-show="wide" href="${board}" target="_blank" rel="noopener noreferrer">DRESS CODE INSPO</a>
       <span class="placed pinterest-mark" data-edit="sticker" data-name="wide-pinterest-mark" data-show="wide" aria-hidden="true"><img src="${asset("assets/stickers/pinterest.svg")}" alt=""></span>
       <a class="placed inspo-note" data-edit="text" data-name="wide-inspo-note" data-show="wide" href="${board}" target="_blank" rel="noopener noreferrer">view the full board
-on Pinterest ↘</a>
+on Pinterest</a>
       <a class="placed inspo-collage" data-edit="sticker" data-name="wide-inspo-collage" data-show="wide" href="${board}" target="_blank" rel="noopener noreferrer" aria-label="View dress code inspiration on Pinterest">${photos}</a>
       <span class="placed doodle-svg inspo-star" data-edit="sticker" data-name="wide-inspo-star" data-show="wide" aria-hidden="true"><img src="${asset("assets/stickers/star-swirl-sketch.svg")}" alt=""></span>
 
@@ -122,7 +122,7 @@ on Pinterest ↘</a>
       </section>
       <h2 class="placed rsvp-heading" data-edit="text" data-name="wide-rsvp-heading" data-show="wide">RSVP</h2>
       <span class="placed doodle-svg light-doodle" data-edit="sticker" data-name="wide-rsvp-heart" data-show="wide" aria-hidden="true"><img src="${asset("assets/stickers/heart-sketchy-light.svg")}" alt=""></span>
-      <button type="button" class="placed rsvp-primary" data-edit="sticker" data-name="wide-rsvp-primary" data-show="wide"><img class="rsvp-brand-icon" src="${asset("assets/stickers/whatsapp.svg")}" alt=""><strong>Yes! I’m coming</strong><span aria-hidden="true">→</span></button>
+      <button type="button" class="placed rsvp-primary" data-edit="sticker" data-name="wide-rsvp-primary" data-show="wide"><img class="rsvp-brand-icon" src="${asset("assets/stickers/whatsapp.svg")}" alt=""><strong>Yes! I’m coming</strong></button>
       <small class="placed rsvp-small" data-edit="text" data-name="wide-rsvp-small" data-show="wide">(no hard feelings!)</small>
       <p class="placed rsvp-note" data-edit="text" data-name="wide-rsvp-note" data-show="wide">can’t wait
 to see you!</p>
@@ -147,7 +147,7 @@ to see you!</p>
     "wide-inspo-title-ink": { x: "45px", y: "470px", z: "3", r: "-4deg", w: "540px", h: "100.8px", edgeSeed: 20261205, edgeStyle: "separator" },
     "wide-inspo-title": { x: "72px", y: "501.5px", z: "4", r: "-4deg", w: "486px", fontSize: "43.2px", text: "DRESS CODE INSPO" },
     "wide-pinterest-mark": { x: "117px", y: "582.5px", z: "4", r: "-8deg", w: "64.8px" },
-    "wide-inspo-note": { x: "198px", y: "573.5px", z: "4", r: "-6deg", w: "270px", fontSize: "29.7px", text: "view the full board\non Pinterest ↘" },
+    "wide-inspo-note": { x: "198px", y: "573.5px", z: "4", r: "-6deg", w: "270px", fontSize: "29.7px", text: "view the full board\non Pinterest" },
     "wide-inspo-collage": { x: "94.5px", y: "686px", z: "3", r: "0deg", w: "517.5px", h: "690.3px" },
     "wide-inspo-star": { x: "72px", y: "1091px", z: "4", r: "-12deg", w: "82.8px" },
     "wide-invite": { x: "785px", y: "495px", z: "2", r: "1deg", w: "550px" },
