@@ -1,19 +1,19 @@
 @font-face {
   font-family: handwriting-8;
   src: url("../assets/fonts/handwriting-8.ttf") format("truetype");
-  font-display: swap;
+  font-display: block;
 }
 
 @font-face {
   font-family: "Cup Cakes";
   src: url("../assets/fonts/CupCakes.otf") format("opentype");
-  font-display: swap;
+  font-display: block;
 }
 
 @font-face {
   font-family: "Gochi Hand";
   src: url("../assets/fonts/GochiHand-Regular.ttf") format("truetype");
-  font-display: swap;
+  font-display: block;
 }
 
 :root {
@@ -39,6 +39,13 @@
 html {
   overflow-y: scroll;
   scrollbar-gutter: stable;
+  background-image: url("../assets/stickers/bg.png");
+  background-size: var(--paper-w) var(--paper-h);
+  background-repeat: repeat;
+}
+
+html:not(.is-ready) body:not(.edit-page) {
+  visibility: hidden;
 }
 
 body {

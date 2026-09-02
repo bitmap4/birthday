@@ -153,7 +153,8 @@ window.Bday = window.Bday || {};
     }
     try {
       const xhr = new XMLHttpRequest();
-      xhr.open("GET", B.placedUrl() + "?t=" + Date.now(), false);
+      const q = document.body.classList.contains("edit-page") ? "?t=" + Date.now() : "";
+      xhr.open("GET", B.placedUrl() + q, false);
       xhr.send();
       B.FILE = B.normalizeFile(JSON.parse(xhr.responseText));
     } catch {
@@ -414,6 +415,10 @@ window.Bday = window.Bday || {};
 
   B.fitStage = function fitStage(hero) {
     return B.applyFrame(hero);
+  };
+
+  B.reveal = function reveal() {
+    document.documentElement.classList.add("is-ready");
   };
 
   B.setBreak = function setBreak(name) {

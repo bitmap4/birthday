@@ -4,9 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Birthday</title>
+    <style>
+      html {
+        background: #efe6d4;
+      }
+      html:not(.is-ready) body {
+        visibility: hidden;
+      }
+    </style>
     <link rel="icon" type="image/png" href="assets/stickers/50af036d.png" />
+    <link rel="preload" href="placed.json" as="fetch" crossorigin />
+    <link rel="preload" href="js/layout.js" as="script" />
+    <link rel="preload" href="js/mobile-body.js" as="script" />
     <link rel="stylesheet" href="css/hero.css" />
     <link rel="stylesheet" href="css/mobile-body.css" />
+    <script>
+      (function () {
+        var w = document.documentElement.clientWidth;
+        document.documentElement.dataset.break =
+          w <= 699 ? "mobile" : w <= 1199 ? "medium" : "desktop";
+        setTimeout(function () {
+          document.documentElement.classList.add("is-ready");
+        }, 2500);
+      })();
+    </script>
     <style>
       html,
       body {

@@ -193,6 +193,7 @@ to see you!</p>
   if (window.Bday && window.Bday.applyPlaced) {
     window.Bday.applyPlaced();
     window.Bday.applyFrame();
+    window.Bday.reveal();
   }
   const pinterestApi = config.pinterestApi || "/__pinterest";
   fetch(pinterestApi + "?url=" + encodeURIComponent(board), { cache: "no-store" })
