@@ -152,6 +152,11 @@ html[data-break="mobile"] .mobile-body {
   box-shadow: 0 4px 8px rgba(52, 31, 20, 0.28);
 }
 
+[data-name="wide-inspo-collage"] .instant-photo {
+  padding: 7.2px 7.2px 15.3px;
+  box-shadow: 0 3.6px 7.2px rgba(52, 31, 20, 0.28);
+}
+
 .instant-photo img {
   display: block;
   width: 100%;

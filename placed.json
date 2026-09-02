@@ -244,12 +244,12 @@
       "w": "190px"
     },
     "wide-inspo-paper": {
-      "x": "65px",
-      "y": "530px",
+      "x": "64.8px",
+      "y": "524px",
       "z": "1",
       "r": "-1deg",
-      "w": "650px",
-      "h": "770px",
+      "w": "587.7px",
+      "h": "863.1px",
       "edgeSeed": 20261204,
       "edgeStyle": "separator"
     },
@@ -258,69 +258,69 @@
       "y": "470px",
       "z": "3",
       "r": "-4deg",
-      "w": "600px",
-      "h": "112px",
+      "w": "540px",
+      "h": "100.8px",
       "edgeSeed": 20261205,
       "edgeStyle": "separator"
     },
     "wide-inspo-title": {
-      "x": "75px",
-      "y": "505px",
+      "x": "72px",
+      "y": "501.5px",
       "z": "4",
       "r": "-4deg",
-      "w": "540px",
-      "fontSize": "48px",
+      "w": "486px",
+      "fontSize": "43.2px",
       "text": "DRESS CODE INSPO"
     },
     "wide-pinterest-mark": {
-      "x": "125px",
-      "y": "595px",
+      "x": "117px",
+      "y": "591.5px",
       "z": "4",
       "r": "-8deg",
-      "w": "72px"
+      "w": "64.8px"
     },
     "wide-inspo-note": {
-      "x": "215px",
-      "y": "585px",
+      "x": "198px",
+      "y": "579.8px",
       "z": "4",
       "r": "-6deg",
-      "w": "300px",
-      "fontSize": "33px",
+      "w": "270px",
+      "fontSize": "29.7px",
       "text": "view the full board\non Pinterest \u2198"
     },
     "wide-inspo-collage": {
-      "x": "100px",
-      "y": "710px",
+      "x": "93.6px",
+      "y": "686px",
       "z": "3",
       "r": "0deg",
-      "w": "575px",
-      "h": "520px"
+      "w": "504.9px",
+      "h": "690.3px"
     },
     "wide-inspo-star": {
-      "x": "75px",
-      "y": "1160px",
+      "x": "52.2px",
+      "y": "1322.3px",
       "z": "4",
       "r": "-12deg",
-      "w": "92px"
+      "w": "82.8px"
     },
     "wide-invite": {
-      "x": "835px",
-      "y": "495px",
+      "x": "796px",
+      "y": "561px",
       "z": "2",
       "r": "1deg",
-      "w": "500px"
+      "w": "550px"
     },
     "wide-rsvp-ink": {
-      "x": "-4px",
-      "y": "1377px",
+      "x": "-2px",
+      "y": "1358px",
       "z": "2",
       "r": "0deg",
       "w": "1440px",
       "h": "430px"
     },
     "wide-rsvp-heading": {
-      "x": "90px",
-      "y": "1490px",
+      "x": "93px",
+      "y": "1472px",
       "z": "4",
       "r": "-6deg",
       "w": "280px",
@@ -329,22 +329,22 @@
       "text": "RSVP"
     },
     "wide-rsvp-heart": {
-      "x": "183px",
-      "y": "1590px",
+      "x": "220px",
+      "y": "1556px",
       "z": "4",
       "r": "-10deg",
       "w": "90px"
     },
     "wide-rsvp-primary": {
-      "x": "443px",
-      "y": "1535px",
+      "x": "468px",
+      "y": "1507px",
       "z": "4",
       "r": "0deg",
       "w": "560px"
     },
     "wide-rsvp-small": {
-      "x": "493px",
-      "y": "1636px",
+      "x": "527px",
+      "y": "1624px",
       "z": "4",
       "r": "1deg",
       "w": "350px",
@@ -353,8 +353,8 @@
       "text": "(no hard feelings!)"
     },
     "wide-rsvp-note": {
-      "x": "1015px",
-      "y": "1510px",
+      "x": "1005px",
+      "y": "1479px",
       "z": "4",
       "r": "-7deg",
       "w": "210px",
@@ -363,15 +363,15 @@
       "text": "can\u2019t wait\nto see you!"
     },
     "wide-rsvp-note-heart": {
-      "x": "1225px",
-      "y": "1602px",
+      "x": "1072px",
+      "y": "1611px",
       "z": "4",
       "r": "12deg",
       "w": "78px"
     },
     "wide-rsvp-star": {
-      "x": "1300px",
-      "y": "1450px",
+      "x": "1287px",
+      "y": "1435px",
       "z": "4",
       "r": "8deg",
       "w": "100px"
@@ -622,12 +622,12 @@
       "w": "190px"
     },
     "wide-inspo-paper": {
-      "x": "65px",
-      "y": "530px",
+      "x": "64.8px",
+      "y": "523.1px",
       "z": "1",
       "r": "-1deg",
-      "w": "650px",
-      "h": "770px",
+      "w": "585px",
+      "h": "893.7px",
       "edgeSeed": 20261204,
       "edgeStyle": "separator"
     },
@@ -636,69 +636,69 @@
       "y": "470px",
       "z": "3",
       "r": "-4deg",
-      "w": "600px",
-      "h": "112px",
+      "w": "540px",
+      "h": "100.8px",
       "edgeSeed": 20261205,
       "edgeStyle": "separator"
     },
     "wide-inspo-title": {
-      "x": "75px",
-      "y": "505px",
+      "x": "72px",
+      "y": "501.5px",
       "z": "4",
       "r": "-4deg",
-      "w": "540px",
-      "fontSize": "48px",
+      "w": "486px",
+      "fontSize": "43.2px",
       "text": "DRESS CODE INSPO"
     },
     "wide-pinterest-mark": {
-      "x": "125px",
-      "y": "595px",
+      "x": "117px",
+      "y": "582.5px",
       "z": "4",
       "r": "-8deg",
-      "w": "72px"
+      "w": "64.8px"
     },
     "wide-inspo-note": {
-      "x": "215px",
-      "y": "585px",
+      "x": "198px",
+      "y": "573.5px",
       "z": "4",
       "r": "-6deg",
-      "w": "300px",
-      "fontSize": "33px",
+      "w": "270px",
+      "fontSize": "29.7px",
       "text": "view the full board\non Pinterest \u2198"
     },
     "wide-inspo-collage": {
-      "x": "100px",
-      "y": "710px",
+      "x": "94.5px",
+      "y": "686px",
       "z": "3",
       "r": "0deg",
-      "w": "575px",
-      "h": "520px"
+      "w": "517.5px",
+      "h": "690.3px"
     },
     "wide-inspo-star": {
-      "x": "75px",
-      "y": "1160px",
+      "x": "56.7px",
+      "y": "1343px",
       "z": "4",
       "r": "-12deg",
-      "w": "92px"
+      "w": "82.8px"
     },
     "wide-invite": {
-      "x": "835px",
-      "y": "495px",
+      "x": "779px",
+      "y": "532px",
       "z": "2",
       "r": "1deg",
-      "w": "500px"
+      "w": "550px"
     },
     "wide-rsvp-ink": {
-      "x": "0px",
-      "y": "1370px",
+      "x": "2px",
+      "y": "1368px",
       "z": "2",
       "r": "0deg",
       "w": "1440px",
       "h": "430px"
     },
     "wide-rsvp-heading": {
-      "x": "90px",
-      "y": "1490px",
+      "x": "88px",
+      "y": "1491px",
       "z": "4",
       "r": "-6deg",
       "w": "280px",
@@ -707,22 +707,22 @@
       "text": "RSVP"
     },
     "wide-rsvp-heart": {
-      "x": "205px",
-      "y": "1573px",
+      "x": "212px",
+      "y": "1595px",
       "z": "4",
       "r": "-10deg",
       "w": "90px"
     },
     "wide-rsvp-primary": {
-      "x": "475px",
-      "y": "1539px",
+      "x": "485px",
+      "y": "1511px",
       "z": "4",
       "r": "0deg",
       "w": "560px"
     },
     "wide-rsvp-small": {
       "x": "532px",
-      "y": "1645px",
+      "y": "1643px",
       "z": "4",
       "r": "1deg",
       "w": "350px",
@@ -731,8 +731,8 @@
       "text": "(no hard feelings!)"
     },
     "wide-rsvp-note": {
-      "x": "1080px",
-      "y": "1500px",
+      "x": "1024px",
+      "y": "1488px",
       "z": "4",
       "r": "-7deg",
       "w": "210px",
@@ -741,15 +741,15 @@
       "text": "can\u2019t wait\nto see you!"
     },
     "wide-rsvp-note-heart": {
-      "x": "1140px",
-      "y": "1620px",
+      "x": "1124px",
+      "y": "1611px",
       "z": "4",
       "r": "12deg",
       "w": "78px"
     },
     "wide-rsvp-star": {
-      "x": "1300px",
-      "y": "1450px",
+      "x": "1291px",
+      "y": "1443px",
       "z": "4",
       "r": "8deg",
       "w": "100px"
@@ -958,12 +958,12 @@
       "text": "12/09/2026"
     },
     "details-paper": {
-      "x": "41px",
+      "x": "38px",
       "y": "300px",
       "z": "1",
       "r": "-1deg",
       "w": "707px",
-      "h": "1353px",
+      "h": "1246px",
       "edgeSeed": 20260929,
       "edgeStyle": "separator"
     },
@@ -1060,8 +1060,8 @@
       "text": "After Dark \u2014 dark, elegant tones\nor soft neutrals. Please avoid\nbright or neon colours."
     },
     "details-aside": {
-      "x": "288px",
-      "y": "1468px",
+      "x": "249px",
+      "y": "1353px",
       "z": "3",
       "r": "-5deg",
       "w": "350px",
@@ -1070,15 +1070,15 @@
       "text": "Dress it up,\nkeep it classy."
     },
     "details-heart": {
-      "x": "634px",
-      "y": "1512px",
+      "x": "626px",
+      "y": "1407px",
       "z": "3",
       "r": "11deg",
       "w": "65px"
     },
     "details-star": {
-      "x": "236px",
-      "y": "1530px",
+      "x": "109px",
+      "y": "1404px",
       "z": "3",
       "r": "-9deg",
       "w": "52px"
