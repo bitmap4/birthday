@@ -1,0 +1,6 @@
+deploy.sh
+local.settings.json
+.venv
+.python_packages
+__pycache__
+*.pyc
